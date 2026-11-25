@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Complaints</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1180px; display: flex; flex-wrap: wrap; font-family: Inter, system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; color: #0F2A5F;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">How complaints arrive</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">The AI spots complaints in any chat or call, groups repeats about the same issue, and opens one ticket with a due time.</div>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #475569">Thursday, 7 January · Sunrise Public School</div>
+      <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Complaints</h1>
+    </header>
+
+    <section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Open now</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">{{openCount}}</div>
+        <div style="font-size: 13px; color: #475569">{{openNote}}</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Resolved in last 30 days</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">{{resolved}}</div>
+        <div style="font-size: 13px; color: #475569">parents told automatically on close</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Closed within due time</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #166534">97%</div>
+        <div style="font-size: 13px; color: #475569">32 of 33 closed in the last 30 days</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Average time to close</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">6.4 h</div>
+        <div style="font-size: 13px; color: #475569">from first message to fix</div>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+      <section aria-label="Tickets" style="flex: 3 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Tickets</h2>
+        <template data-sc-for list="{{tickets}}" as="t" hint-placeholder-count="5">
+          <div style="{{t.box}}">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center">
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+                <span style="padding: 3px 10px; border-radius: 999px; background: #EEF2FB; color: #0F2A5F; font-size: 12px; font-weight: 700">{{t.cat}}</span>
+                <span style="font-size: 13px; color: #475569">{{t.reports}}</span>
+              </div>
+              <span style="{{t.dueStyle}}">{{t.due}}</span>
+            </div>
+            <div style="font-weight: 600; font-size: 16px">{{t.title}}</div>
+            <div style="font-size: 14px; color: #475569; line-height: 1.5">{{t.body}}</div>
+            <div style="font-size: 13px; color: #334155">Owner: <strong>{{t.owner}}</strong></div>
+            <template data-sc-if value="{{t.open}}" hint-placeholder-val="{{ true }}">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                <button onClick="{{t.resolve}}" style="height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Mark resolved &amp; tell parents</button>
+                <button onClick="{{t.escalate}}" style="height: 44px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">{{t.escLabel}}</button>
+              </div>
+            </template>
+            <template data-sc-if value="{{t.hasResult}}" hint-placeholder-val="{{ false }}">
+              <div role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{t.result}}</div>
+            </template>
+          </div>
+        </template>
+      </section>
+
+      <section aria-label="By category" style="flex: 2 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700">What parents complain about · last 30 days</h2>
+        <template data-sc-for list="{{cats}}" as="k" hint-placeholder-count="5">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; font-size: 14px"><span>{{k.name}}</span><strong>{{k.n}}</strong></div>
+            <div style="height: 10px; border-radius: 999px; background: #E8ECF5; overflow: hidden"><div style="{{k.bar}}"></div></div>
+          </div>
+        </template>
+        <div style="padding: 14px; border-radius: 14px; background: #FFF8EB; border: 1px solid #F5D9A0; font-size: 14px; line-height: 1.5">
+          <strong>Pattern spotted:</strong> transport made up 14 of 36 complaints, and 9 of those were about Route 4. Fixing that route's timing would remove the biggest single source of complaints.
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { act: {} }; }
+  renderVals() {
+    const s = this.state;
+    const T = [
+      { id: 'bus', cat: 'Transport', reports: '3 parents · 3 chats grouped', title: 'Route 4 bus 20 minutes late', body: 'Third delay this week at the Chandapura stop. Each parent got an apology and the expected arrival time.', owner: 'Transport head', due: 'Due today 1 PM', urgent: true, escLabel: 'Send update to all 38 Route 4 parents', esc: 'Update sent to 38 Route 4 parents', res: 'Resolved · 3 parents told on WhatsApp' },
+      { id: 'canteen', cat: 'Canteen', reports: '2 parents', title: 'Lunch served cold in the primary block', body: 'Two parents of Class 2 students said lunch was cold on Monday and Tuesday.', owner: 'Admin officer', due: 'Due tomorrow 12 PM', urgent: false, escLabel: 'Escalate to principal', esc: 'Escalated to you · added to "Needs you"', res: 'Resolved · 2 parents told on WhatsApp' },
+      { id: 'washroom', cat: 'Facilities', reports: '1 parent', title: 'Second-floor washroom not cleaned on time', body: 'A parent of a Class 8 student reported it on a voice call. The AI logged it with the floor and time.', owner: 'Facilities in-charge', due: 'Due tomorrow 10 AM', urgent: false, escLabel: 'Escalate to principal', esc: 'Escalated to you · added to "Needs you"', res: 'Resolved · parent told on WhatsApp' },
+      { id: 'receipt', cat: 'Fees', reports: '1 parent', title: 'Fee receipt not received after UPI payment', body: 'Receipt was resent automatically once the payment matched.', owner: 'Accounts office', due: 'Closed in 2 h', urgent: false, closed: true, res: 'Closed yesterday · parent confirmed' }
+    ];
+    const tickets = T.map((t) => {
+      const a = s.act[t.id];
+      const open = !t.closed && a !== 'res';
+      return { cat: t.cat, reports: t.reports, title: t.title, body: t.body, owner: t.owner, escLabel: t.escLabel || '',
+        due: t.closed || a === 'res' ? 'Closed' : t.due,
+        dueStyle: 'padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; ' + (t.closed || a === 'res' ? 'background: #DCFCE7; color: #166534;' : t.urgent ? 'background: #FEE2E2; color: #991B1B;' : 'background: #FEF3C7; color: #92400E;'),
+        box: 'display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px; ' + (open ? 'border: 1px solid #CBD5E1; background: #FFFFFF;' : 'border: 1px solid #E2E8F0; background: #F8FAFC;'),
+        open: open && a !== 'esc', hasResult: !!a || !!t.closed,
+        result: a === 'res' || t.closed ? t.res : a === 'esc' ? t.esc : '',
+        resolve: () => this.setState({ act: { ...s.act, [t.id]: 'res' } }),
+        escalate: () => this.setState({ act: { ...s.act, [t.id]: 'esc' } }) };
+    });
+    const openCount = T.filter((t) => !t.closed && s.act[t.id] !== 'res').length;
+    const closedNow = T.filter((t) => !t.closed && s.act[t.id] === 'res').length;
+    const CATS = [['Transport', 14], ['Fees & receipts', 8], ['Canteen', 6], ['Facilities', 5], ['Academics', 3]];
+    return {
+      tickets, openCount, resolved: 33 + closedNow,
+      openNote: openCount === 0 ? 'Nothing open' : (s.act.bus === 'res' ? 0 : 1) + ' due today · ' + (openCount - (s.act.bus === 'res' ? 0 : 1)) + ' due tomorrow',
+      cats: CATS.map(([name, n]) => ({ name, n, bar: 'height: 100%; width: ' + Math.round((n / 14) * 100) + '%; background: ' + (name === 'Transport' ? '#F5A524' : '#0F2A5F') + '; border-radius: 999px' }))
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

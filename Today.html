@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Today</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1580px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">Agents on duty</div>
+      <template data-sc-for list="{{agents}}" as="ag" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #4ADE80"></span>
+          <span style="flex: 1">{{ag.name}}</span>
+          <span style="color: #AEBBE2; font-size: 13px">{{ag.count}}</span>
+        </div>
+      </template>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 14px; color: #475569">Thursday, 7 January · Sunrise Public School</div>
+        <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Good morning, Principal</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #DCFCE7; color: #166534; font-size: 14px; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 50%; background: #16A34A"></span>Live · 4 agents working</span>
+        <button aria-label="Search" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <section aria-label="Morning brief" style="background: #0F2A5F; color: #FFFFFF; border-radius: 20px; padding: 24px 28px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCD58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3L4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"></path><circle cx="12" cy="12" r="4"></circle></svg>
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700">AI morning brief · 9:40 AM</h2>
+      </div>
+      <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5; color: #E2E8F8">
+        <li>61 students absent. Parents of 58 were alerted on WhatsApp; the AI is calling the other 3 now.</li>
+        <li>₹4.8 lakh came in yesterday from fee reminders. 212 families are more than 30 days overdue.</li>
+        <li>9 admission enquiries arrived overnight; 4 families booked a school tour for Saturday.</li>
+        <li>{{briefNeeds}}</li>
+      </ul>
+    </section>
+
+    <section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Attendance today</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">94.2%</div>
+        <div style="font-size: 13px; color: #475569">985 of 1,046 present · 61 absent</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500"><a href="Fees.html" style="color: #475569">Term fees collected</a></div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">₹1.42 Cr</div>
+        <div style="height: 8px; border-radius: 999px; background: #E8ECF5; overflow: hidden"><div style="width: 75%; height: 100%; background: #F5A524"></div></div>
+        <div style="font-size: 13px; color: #475569">75% of ₹1.89 Cr · ₹47 L overdue</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500"><a href="Admissions.html" style="color: #475569">Admissions 2027-28</a></div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">128</div>
+        <div style="font-size: 13px; color: #475569">enquiries · 37 visits · 14 forms</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Parent queries today</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">186</div>
+        <div style="font-size: 13px; color: #475569">171 answered by AI (92%) · 15 to staff</div>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+      <section aria-label="Needs you" style="flex: 3 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Needs you <span style="display: inline-block; min-width: 26px; padding: 2px 8px; border-radius: 999px; background: #F5A524; color: #0F2A5F; font-size: 14px; text-align: center">{{openCount}}</span></h2>
+          <span style="font-size: 14px; color: #475569">Only what the agents can't decide</span>
+        </div>
+        <template data-sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+          <div style="{{it.box}}">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+              <span style="{{it.tagStyle}}">{{it.tag}}</span>
+              <span style="font-size: 13px; color: #475569">{{it.meta}}</span>
+            </div>
+            <div style="font-weight: 600; font-size: 15px">{{it.title}}</div>
+            <div style="font-size: 14px; color: #475569; line-height: 1.45">{{it.body}}</div>
+            <template data-sc-if value="{{it.open}}" hint-placeholder-val="{{ true }}">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                <button onClick="{{it.doMain}}" style="height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">{{it.main}}</button>
+                <button onClick="{{it.doAlt}}" style="height: 44px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">{{it.alt}}</button>
+              </div>
+            </template>
+            <template data-sc-if value="{{it.closed}}" hint-placeholder-val="{{ false }}">
+              <div role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{it.result}}</div>
+            </template>
+          </div>
+        </template>
+      </section>
+
+      <section aria-label="Live activity" style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <div style="display: flex; justify-content: space-between; align-items: baseline">
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Live activity</h2>
+          <span style="font-size: 13px; color: #475569">What your agents did</span>
+        </div>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+          <template data-sc-for list="{{feed}}" as="f" hint-placeholder-count="7">
+            <li style="display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F6">
+              <span style="flex: 0 0 48px; font-size: 13px; font-weight: 600; color: #475569; padding-top: 2px">{{f.t}}</span>
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                <span style="font-size: 14px; line-height: 1.45">{{f.text}}</span>
+                <span style="font-size: 12px; color: #475569">{{f.who}}</span>
+              </div>
+            </li>
+          </template>
+        </ol>
+      </section>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { done: {} }; }
+  renderVals() {
+    const s = this.state;
+    const TAG = {
+      Safety: 'background: #FEE2E2; color: #991B1B;',
+      Fees: 'background: #FEF3C7; color: #92400E;',
+      Complaint: 'background: #FFEDD5; color: #9A3412;',
+      Approval: 'background: #E0E7FF; color: #3730A3;',
+      Staff: 'background: #E0F2FE; color: #075985;'
+    };
+    const I = [
+      { id: 'a', tag: 'Safety', meta: 'Parent Desk · 9:22 AM', title: 'Parent asking about a PE-class injury, Class 3C', body: 'The parent says their child came home with a swollen ankle yesterday. The agent stopped replying and passed this to you.', main: 'Call the parent', alt: 'Assign to class teacher', r1: 'Call logged · class teacher informed', r2: 'Assigned to Ms. Thomas, Class 3C' },
+      { id: 'b', tag: 'Fees', meta: 'Fee Recovery · 8:51 AM', title: '15-day extension request, Class 4A', body: 'The parent asked for more time on ₹18,500 (Term 3). Paid on time for the last 4 terms.', main: 'Approve extension', alt: 'Decline politely', r1: 'Approved · parent told on WhatsApp, reminders paused 15 days', r2: 'Declined · polite reply sent with UPI link' },
+      { id: 'c', tag: 'Complaint', meta: 'Parent Desk · 8:12 AM', title: 'Route 4 bus 20 minutes late, 3 parents', body: 'Three parents complained in separate chats. All received an apology and an expected arrival time.', main: 'Assign to transport head', alt: 'Message all Route 4 parents', r1: 'Assigned to transport head · due today 1 PM', r2: 'Update sent to 38 Route 4 parents' },
+      { id: 'd', tag: 'Approval', meta: 'Circulars · drafted by AI', title: 'Annual Day invitation, all parents', body: 'Draft ready in English, Hindi and Kannada for 1,812 parents. Sends at 5 PM unless you change it.', main: 'Approve & schedule', alt: 'Edit draft', r1: 'Scheduled for 5 PM · 1,812 parents', r2: 'Opened for editing' },
+      { id: 'e', tag: 'Staff', meta: 'Teacher Assistant · 7:30 AM', title: 'Ms. Rao on leave tomorrow, Class 6B', body: 'The AI suggests Mr. Iyer, who has a free period at the same time, as substitute for Maths.', main: 'Approve substitute', alt: 'Choose someone else', r1: 'Mr. Iyer confirmed · timetable updated', r2: 'Opened staff list' }
+    ];
+    const items = I.map((x) => {
+      const d = s.done[x.id];
+      return {
+        tag: x.tag, meta: x.meta, title: x.title, body: x.body, main: x.main, alt: x.alt,
+        tagStyle: 'padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; ' + TAG[x.tag],
+        open: !d, closed: !!d, result: d === 1 ? x.r1 : d === 2 ? x.r2 : '',
+        box: 'display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px; ' + (d ? 'background: #F8FAFC; border: 1px solid #E2E8F0;' : 'background: #FFFFFF; border: 1px solid #CBD5E1;'),
+        doMain: () => this.setState({ done: { ...s.done, [x.id]: 1 } }),
+        doAlt: () => this.setState({ done: { ...s.done, [x.id]: 2 } })
+      };
+    });
+    const openCount = I.filter((x) => !s.done[x.id]).length;
+    return {
+      items, openCount,
+      briefNeeds: openCount === 0 ? 'Everything that needed you is done. Agents will handle the rest.' : openCount + (openCount === 1 ? ' item needs' : ' items need') + ' your decision, starting with a safety question from a parent in Class 3C.',
+      nav: [
+ { label: 'Parent chats', badge: '15' }, { label: 'Complaints', badge: '3' }, { label: 'Staff', badge: '' }, { label: 'Monthly ROI', badge: '' }
+      ].map((n) => ({ ...n, badgeStyle: n.badge ? 'min-width: 22px; padding: 1px 8px; border-radius: 999px; background: #17377A; color: #FCD58A; font-size: 12px; font-weight: 700; text-align: center' : 'display: none' })),
+      agents: [
+        { name: 'Parent Desk', count: '171 chats' }, { name: 'Fee Recovery', count: '96 reminders' },
+        { name: 'Admissions', count: '9 enquiries' }, { name: 'Teacher Asst.', count: '34 posts' }
+      ],
+      feed: [
+        { t: '9:31', text: 'Class 1 enquiry answered within a minute; tour booked for Sat 10 AM', who: 'Admissions' },
+        { t: '9:10', text: '₹18,500 received via UPI from Aarav Sharma’s parent (Class 6B)', who: 'Fee Recovery' },
+        { t: '9:02', text: 'Maths homework for 6B sent to 42 parents in English and Hindi', who: 'Teacher Assistant' },
+        { t: '8:17', text: 'Voice call to Aarav’s parent: child unwell, leave recorded', who: 'Parent Desk · voice' },
+        { t: '8:10', text: 'Absence alerts sent to parents of 58 students', who: 'Teacher Assistant' },
+        { t: '8:05', text: 'Ms. Rao marked 6B attendance in 2 taps · 2 absent', who: 'Teacher app' },
+        { t: '7:45', text: 'Route 4 delay: apologised and shared arrival time with 3 parents', who: 'Parent Desk' }
+      ]
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

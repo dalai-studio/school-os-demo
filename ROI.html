@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Monthly ROI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1000px; display: flex; flex-wrap: wrap; font-family: Inter, system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">How this is counted</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">Every task below is counted from the agents' own logs. Time saved uses the minutes you set, so you can match your school's reality.</div>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 14px; color: #475569">Last 30 days · 9 December to 7 January</div>
+        <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">What your AI office delivered</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+        <span role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{shareNote}}</span>
+        <button onClick="{{share}}" style="height: 48px; padding: 0 20px; border: 0; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 15px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Send to management</button>
+      </div>
+    </header>
+
+    <section aria-label="Headline results" style="background: #0F2A5F; color: #FFFFFF; border-radius: 20px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #C3CEEC">Staff time freed</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800">{{hours}} h</div>
+        <div style="font-size: 13px; color: #C3CEEC">about {{fte}} full-time office staff</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #C3CEEC">Fees collected through AI follow-up</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800; color: #FCD58A">₹1.03 Cr</div>
+        <div style="font-size: 13px; color: #C3CEEC">555 families paid, 87% without a staff call</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #C3CEEC">Parent questions answered by AI</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800">4,860</div>
+        <div style="font-size: 13px; color: #C3CEEC">91% without office help · 24/7</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #C3CEEC">Admission enquiries answered</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800">61</div>
+        <div style="font-size: 13px; color: #C3CEEC">24 after office hours · 6 forms</div>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+      <section aria-label="Work done by agent" style="flex: 3 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Work done by each agent</h2>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 520px">
+            <thead>
+              <tr style="text-align: left; color: #475569; font-size: 13px">
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Task</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Count</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Minutes each</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Hours freed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+                <tr>
+                  <td style="padding: 10px; border-bottom: 1px solid #EEF1F6"><div style="font-weight: 600">{{r.task}}</div><div style="font-size: 12px; color: #475569">{{r.agent}}</div></td>
+                  <td style="padding: 10px; border-bottom: 1px solid #EEF1F6; text-align: right">{{r.countTxt}}</td>
+                  <td style="padding: 10px; border-bottom: 1px solid #EEF1F6; text-align: right">
+                    <span style="display: inline-flex; align-items: center; gap: 6px">
+                      <button onClick="{{r.dec}}" aria-label="{{r.decLabel}}" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">−</button>
+                      <span style="min-width: 24px; text-align: center; font-weight: 600">{{r.min}}</span>
+                      <button onClick="{{r.inc}}" aria-label="{{r.incLabel}}" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">+</button>
+                    </span>
+                  </td>
+                  <td style="padding: 10px; border-bottom: 1px solid #EEF1F6; text-align: right; font-weight: 700">{{r.hrs}}</td>
+                </tr>
+              </template>
+              <tr>
+                <td style="padding: 12px 10px; font-weight: 700">Total</td>
+                <td></td><td></td>
+                <td style="padding: 12px 10px; text-align: right; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px; color: #0F2A5F">{{hours}} h</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 13px; color: #475569">Use − and + to set how long each task takes your staff by hand. Totals update instantly.</div>
+      </section>
+
+      <section aria-label="Value versus cost" style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Value vs cost this month</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
+          <span style="font-size: 14px">Staff cost per hour</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px">
+            <button onClick="{{rateDec}}" aria-label="Lower staff cost per hour" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">−</button>
+            <strong style="min-width: 56px; text-align: center">₹{{rate}}</strong>
+            <button onClick="{{rateInc}}" aria-label="Raise staff cost per hour" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">+</button>
+          </span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px">
+          <span style="font-size: 14px">School OS price per student / month <span style="color: #475569">(example)</span></span>
+          <span style="display: inline-flex; align-items: center; gap: 6px">
+            <button onClick="{{priceDec}}" aria-label="Lower price" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">−</button>
+            <strong style="min-width: 56px; text-align: center">₹{{price}}</strong>
+            <button onClick="{{priceInc}}" aria-label="Raise price" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFFFFF; color: #0F2A5F; font: 700 16px Inter, sans-serif; cursor: pointer">+</button>
+          </span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 14px; background: #F8FAFC">
+          <div style="display: flex; justify-content: space-between; font-size: 15px"><span>Value of staff time freed</span><strong>{{value}}</strong></div>
+          <div style="display: flex; justify-content: space-between; font-size: 15px"><span>School OS cost (1,046 students)</span><strong>{{cost}}</strong></div>
+          <div style="height: 1px; background: #E2E8F0"></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 15px; font-weight: 600">Return on time alone</span><span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: {{roiColor}}">{{roi}}×</span></div>
+        </div>
+        <div style="font-size: 13px; color: #475569; line-height: 1.5">This counts staff time only. Fees collected sooner and admissions won after hours come on top and are shown separately above, not added in.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { min: { q: 3, rem: 2, call: 6, chase: 1, hw: 2, adm: 15 }, rate: 250, price: 25, shared: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const R = [
+      ['q', 'Parent questions answered', 'Parent Desk', 4860],
+      ['rem', 'Fee reminders sent', 'Fee Recovery', 1020],
+      ['call', 'Fee follow-up voice calls', 'Fee Recovery', 142],
+      ['chase', 'Unread circulars chased', 'Circulars', 1150],
+      ['hw', 'Homework and absence updates', 'Teacher Assistant', 1420],
+      ['adm', 'Admission enquiries handled', 'Admissions', 61]
+    ];
+    const setMin = (k, d) => () => this.setState({ min: { ...s.min, [k]: Math.max(1, Math.min(60, s.min[k] + d)) } });
+    let total = 0;
+    const rows = R.map(([k, task, agent, n]) => {
+      const h = (n * s.min[k]) / 60; total += h;
+      return { task, agent, countTxt: n.toLocaleString('en-IN'), min: s.min[k], hrs: Math.round(h).toLocaleString('en-IN') + ' h',
+        dec: setMin(k, -1), inc: setMin(k, 1), decLabel: 'Fewer minutes for ' + task, incLabel: 'More minutes for ' + task };
+    });
+    const hours = Math.round(total);
+    const value = total * s.rate;
+    const cost = 1046 * s.price;
+    const roi = cost ? value / cost : 0;
+    const inr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+    return {
+      rows, hours: hours.toLocaleString('en-IN'), fte: (total / 176).toFixed(1),
+      rate: s.rate, price: s.price, value: inr(value), cost: inr(cost),
+      roi: roi.toFixed(1), roiColor: roi >= 1 ? '#166534' : '#991B1B',
+      rateDec: () => this.setState({ rate: Math.max(50, s.rate - 25) }), rateInc: () => this.setState({ rate: s.rate + 25 }),
+      priceDec: () => this.setState({ price: Math.max(5, s.price - 5) }), priceInc: () => this.setState({ price: s.price + 5 }),
+      share: () => this.setState({ shared: true }),
+      shareNote: s.shared ? 'PDF report sent to the management WhatsApp group' : ''
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Teach School OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1100px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <aside style="flex: 1 1 380px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 48px 44px 40px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 44px; height: 44px; border-radius: 12px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px">School OS</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #FCD58A">Sunrise Public School · Bengaluru</div>
+      <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.12; letter-spacing: -0.02em">Teach it once. It answers every day.</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #D6DEF5; max-width: 420px">Upload what your office already has. School OS reads it, answers parents from it, and asks you when it isn't sure.</p>
+    </div>
+    <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>
+        </span>
+        <a href="Main.html" style="font-size: 16px; color: #D6DEF5">Your school <span style="color: #9FB0DD">· done</span></a>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #F5A524; color: #0F2A5F; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px">2</span>
+        <span style="font-weight: 600; font-size: 16px">Teach School OS your fees, calendar &amp; rules</span>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #7D93CC; color: #D6DEF5; font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 14px; box-sizing: border-box">3</span>
+        <span style="font-size: 16px; color: #D6DEF5">Hire your AI agents</span>
+      </li>
+    </ol>
+    <div style="background: #17377A; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-weight: 600; font-size: 15px">Your data stays your school's</div>
+      <div style="font-size: 13px; color: #C3CEEC; line-height: 1.5">Parent consent is recorded before any messages go out. Student data is used only to serve your school.</div>
+    </div>
+    <div style="margin-top: auto; font-size: 13px; color: #AEBBE2">Demo prototype · fictional school and sample data</div>
+  </aside>
+
+  <main style="flex: 999 1 600px; min-width: 0; box-sizing: border-box; padding: 40px 48px 48px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="font-size: 14px; color: #475569"><strong style="color: #0F172A">Step 2 of 3</strong> · about 5 minutes</div>
+      <div style="font-size: 14px; color: #475569">Accepts PDF, Excel, Word, photos of notices</div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+      <section style="flex: 3 1 440px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 700">Add your school's documents</h2>
+          <p style="margin: 0; font-size: 15px; color: #475569">The more it reads, the more parent questions it can answer without your office.</p>
+        </div>
+        <template data-sc-for list="{{sources}}" as="src" hint-placeholder-count="5">
+          <div style="{{src.box}}">
+            <div style="width: 44px; height: 44px; flex: 0 0 44px; border-radius: 12px; background: #EEF2FB; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg>
+            </div>
+            <div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+              <div style="font-weight: 600; font-size: 16px">{{src.title}} <span style="font-weight: 400; font-size: 13px; color: #475569">{{src.tag}}</span></div>
+              <div style="font-size: 14px; color: #475569">{{src.status}}</div>
+            </div>
+            <template data-sc-if value="{{src.done}}" hint-placeholder-val="{{ true }}">
+              <span style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: #166534">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Learned
+              </span>
+            </template>
+            <template data-sc-if value="{{src.canUpload}}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{src.upload}}" style="height: 44px; padding: 0 18px; border-radius: 10px; border: 1px solid #0F2A5F; background: #FFFFFF; color: #0F2A5F; font: 600 15px Inter, sans-serif; cursor: pointer">Upload</button>
+            </template>
+            <template data-sc-if value="{{src.busy}}" hint-placeholder-val="{{ false }}">
+              <span role="status" style="font-size: 14px; font-weight: 600; color: #92400E">Reading…</span>
+            </template>
+          </div>
+        </template>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 14px; color: #475569; align-items: center">
+          Also works:
+          <span style="padding: 6px 12px; border-radius: 999px; background: #F1F5F9">Forward a WhatsApp circular</span>
+          <span style="padding: 6px 12px; border-radius: 999px; background: #F1F5F9">Photo of a notice board</span>
+          <span style="padding: 6px 12px; border-radius: 999px; background: #F1F5F9">Sync from ERP</span>
+        </div>
+      </section>
+
+      <section style="flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+            <h3 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700">What School OS has learned</h3>
+            <span style="font-size: 14px; color: #475569">{{doneCount}} of 5 sources</span>
+          </div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 40px; font-weight: 800; color: #0F2A5F; line-height: 1">{{facts}} <span style="font-size: 16px; font-weight: 600; color: #475569">facts</span></div>
+          <div style="height: 10px; border-radius: 999px; background: #E8ECF5; overflow: hidden" role="progressbar" aria-label="Setup progress" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100">
+            <div style="{{barStyle}}"></div>
+          </div>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+            <template data-sc-for list="{{learned}}" as="f" hint-placeholder-count="3">
+              <li style="display: flex; gap: 10px; font-size: 14px; line-height: 1.45">
+                <span style="flex: 0 0 auto; padding: 2px 8px; border-radius: 6px; background: #EEF2FB; color: #0F2A5F; font-weight: 600; font-size: 12px; height: fit-content">{{f.k}}</span>
+                <span>{{f.v}}</span>
+              </li>
+            </template>
+          </ul>
+        </div>
+
+        <div style="background: #FFF8EB; border: 1px solid #F5D9A0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+          <div style="font-weight: 700; font-size: 15px; color: #7C2D12">Needs your confirmation</div>
+          <template data-sc-if value="{{askOpen}}" hint-placeholder-val="{{ true }}">
+            <div style="font-size: 14px; line-height: 1.5">The fee PDF mentions two late-fee rules. Which one should agents tell parents?</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <button onClick="{{pickFlat}}" style="height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #0F2A5F; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">₹200 flat after 15 days</button>
+              <button onClick="{{pickDaily}}" style="height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #0F2A5F; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">₹10 per day</button>
+            </div>
+          </template>
+          <template data-sc-if value="{{askDone}}" hint-placeholder-val="{{ false }}">
+            <div role="status" style="font-size: 14px; color: #166534; font-weight: 600">Saved: agents will quote "{{lateRule}}".</div>
+          </template>
+        </div>
+
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+          <div style="font-weight: 700; font-size: 15px">Try it: ask as a parent would</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <template data-sc-for list="{{qs}}" as="q" hint-placeholder-count="4">
+              <button onClick="{{q.ask}}" style="{{q.style}}">{{q.text}}</button>
+            </template>
+          </div>
+          <template data-sc-if value="{{hasAnswer}}" hint-placeholder-val="{{ false }}">
+            <div style="{{answerStyle}}">{{answer}}</div>
+          </template>
+        </div>
+      </section>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 8px">
+      <a href="Main.html" style="height: 52px; padding: 0 22px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #0F2A5F; font: 600 15px Inter, sans-serif; display: flex; align-items: center; gap: 8px; text-decoration: none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Back
+      </a>
+      <a href="Agents.html" style="height: 52px; padding: 0 28px; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 16px 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 10px; text-decoration: none">Continue to Hire your agents
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { done: { fees: true, roster: true, cal: true, handbook: false, transport: false }, busy: null, late: null, q: null };
+  }
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const s = this.state;
+    const SRC = [
+      { id: 'fees', title: 'Fee structure', tag: '', file: 'Fee_Structure_2026-27.pdf', n: 24, note: '24 facts · fee heads, due dates, concessions' },
+      { id: 'roster', title: 'Students & parents', tag: '', file: 'Student_List.xlsx', n: 0, note: '1,046 students · 1,812 parent contacts · 34 sections' },
+      { id: 'cal', title: 'Academic calendar', tag: '', file: 'Calendar_2026-27.pdf', n: 31, note: '31 facts · holidays, exams, PTMs, events' },
+      { id: 'handbook', title: 'Parent handbook & rules', tag: '', file: 'Parent_Handbook.pdf', n: 47, note: '47 facts · uniform, leave, discipline, timings' },
+      { id: 'transport', title: 'Transport routes', tag: 'optional', file: 'Bus_Routes.xlsx', n: 12, note: '12 routes · stops and pickup times' }
+    ];
+    const FACT = {
+      fees: { k: 'Fees', v: 'Term 3 fee due 10 Jan · sibling concession 10%' },
+      roster: { k: 'Classes', v: 'Class 6B: 42 students · class teacher Ms. Rao' },
+      cal: { k: 'Calendar', v: 'Closed 26 Jan (Republic Day) · PTM on Sat 16 Jan' },
+      handbook: { k: 'Rules', v: 'Whites on Wednesdays · leave needs a parent note' },
+      transport: { k: 'Transport', v: 'Route 4 leaves Chandapura stop at 7:05 AM' }
+    };
+    const sources = SRC.map((x) => {
+      const done = !!s.done[x.id], busy = s.busy === x.id;
+      return {
+        title: x.title, tag: x.tag, done, busy, canUpload: !done && !busy,
+        status: done ? x.file + ' · ' + x.note : busy ? 'Reading ' + x.file + '…' : 'Not added yet',
+        box: 'display: flex; align-items: center; gap: 14px; padding: 16px; border-radius: 14px; ' + (done ? 'border: 1px solid #E2E8F0; background: #FFFFFF;' : 'border: 1.5px dashed #CBD5E1; background: #FAFBFD;'),
+        upload: () => {
+          this.setState({ busy: x.id });
+          clearTimeout(this.t);
+          this.t = setTimeout(() => this.setState({ busy: null, done: { ...this.state.done, [x.id]: true } }), 1400);
+        }
+      };
+    });
+    const doneIds = SRC.filter((x) => s.done[x.id]);
+    const facts = doneIds.reduce((a, x) => a + x.n, 0);
+    const pct = Math.round((doneIds.length / SRC.length) * 100);
+    const Q = [
+      { id: 'q1', text: 'When is Term 3 fee due?', need: 'fees', a: 'Term 3 fee is due on 10 January. Shall I send you the UPI payment link?' },
+      { id: 'q2', text: 'Is school open on 26 Jan?', need: 'cal', a: 'School is closed on 26 January for Republic Day.' },
+      { id: 'q3', text: 'Uniform on Wednesday?', need: 'handbook', a: 'Wednesday is whites day: white shirt, white trousers or skirt, and white shoes.' },
+      { id: 'q4', text: 'Route 4 pickup time?', need: 'transport', a: 'The Route 4 bus leaves the Chandapura stop at 7:05 AM.' }
+    ];
+    const NAMES = { fees: 'fee structure', cal: 'academic calendar', handbook: 'parent handbook', transport: 'transport routes' };
+    const cur = Q.find((q) => q.id === s.q);
+    const known = cur && s.done[cur.need];
+    const pill = (on) => 'min-height: 40px; padding: 8px 14px; border-radius: 999px; cursor: pointer; font: 500 14px Inter, sans-serif; text-align: left; ' + (on ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;');
+    return {
+      sources, facts, pct, doneCount: doneIds.length,
+      barStyle: 'height: 100%; width: ' + pct + '%; background: #F5A524; border-radius: 999px; transition: width .5s',
+      learned: doneIds.map((x) => FACT[x.id]),
+      askOpen: !s.late, askDone: !!s.late, lateRule: s.late || '',
+      pickFlat: () => this.setState({ late: '₹200 flat after 15 days' }),
+      pickDaily: () => this.setState({ late: '₹10 per day after the due date' }),
+      qs: Q.map((q) => ({ text: q.text, style: pill(s.q === q.id), ask: () => this.setState({ q: q.id }) })),
+      hasAnswer: !!cur,
+      answer: !cur ? '' : known ? cur.a : "I haven't learned this yet. Upload the " + NAMES[cur.need] + " and I'll answer it.",
+      answerStyle: 'padding: 14px 16px; border-radius: 14px 14px 14px 4px; font-size: 15px; line-height: 1.5; ' + (known ? 'background: #DCF8C6; color: #0F172A;' : 'background: #FEF3C7; color: #78350F;')
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

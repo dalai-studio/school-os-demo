@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Staff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1180px; display: flex; flex-wrap: wrap; font-family: Inter, system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">Teacher Assistant agent</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">Suggests substitutes from the timetable · posts homework after teacher approval · keeps teachers' numbers private</div>
+      <a href="Agents.html" style="font-size: 14px; color: #FCD58A">Edit rules</a>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-direction: column; gap: 4px">
+      <div style="font-size: 14px; color: #475569">Thursday, 7 January · Sunrise Public School</div>
+      <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Staff</h1>
+    </header>
+
+    <section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Teachers present today</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">50 / 52</div>
+        <div style="font-size: 13px; color: #475569">2 on leave today · 1 tomorrow</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Attendance marked by 8:30 AM</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #166534">33 / 34</div>
+        <div style="font-size: 13px; color: #475569">sections · 1 marked late</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Homework posted this week</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">94%</div>
+        <div style="font-size: 13px; color: #475569">of planned posts · most by voice note</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Parent replies waiting</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">6</div>
+        <div style="font-size: 13px; color: #475569">messages that need a teacher</div>
+      </div>
+    </section>
+
+    <section aria-label="Leave and substitutes" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Leave &amp; substitutes</h2>
+        <span style="font-size: 13px; color: #475569">AI picks teachers who are free that period and teach the subject</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+        <template data-sc-for list="{{leaves}}" as="l" hint-placeholder-count="3">
+          <div style="{{l.box}}">
+            <div style="display: flex; justify-content: space-between; gap: 8px; align-items: center">
+              <span style="font-weight: 600; font-size: 15px">{{l.who}}</span>
+              <span style="padding: 3px 10px; border-radius: 999px; background: #EEF2FB; color: #0F2A5F; font-size: 12px; font-weight: 700">{{l.when}}</span>
+            </div>
+            <div style="font-size: 14px; color: #475569">{{l.load}}</div>
+            <div style="font-size: 14px; line-height: 1.5">AI suggests <strong>{{l.sub}}</strong> · {{l.why}}</div>
+            <template data-sc-if value="{{l.open}}" hint-placeholder-val="{{ true }}">
+              <div style="display: flex; flex-wrap: wrap; gap: 8px">
+                <button onClick="{{l.approve}}" style="height: 44px; padding: 0 14px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Approve</button>
+                <button onClick="{{l.alt}}" style="height: 44px; padding: 0 14px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Use {{l.altName}}</button>
+              </div>
+            </template>
+            <template data-sc-if value="{{l.done}}" hint-placeholder-val="{{ false }}">
+              <div role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{l.result}}</div>
+            </template>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <section aria-label="Teachers" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Teachers this week</h2>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px">
+          <thead>
+            <tr style="text-align: left; color: #475569; font-size: 13px">
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Teacher</th>
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Teaches</th>
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Today</th>
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Attendance marked</th>
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Homework posts</th>
+              <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Parent replies waiting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template data-sc-for list="{{teachers}}" as="t" hint-placeholder-count="7">
+              <tr>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6; font-weight: 600">{{t.name}}</td>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6; color: #334155">{{t.subj}}</td>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6"><span style="{{t.dayStyle}}">{{t.day}}</span></td>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6; color: #334155">{{t.att}}</td>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6; text-align: right">{{t.hw}}</td>
+                <td style="padding: 12px 10px; border-bottom: 1px solid #EEF1F6; text-align: right; font-weight: 600">{{t.wait}}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size: 13px; color: #475569">Showing 7 of 52 teachers</div>
+    </section>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { act: {} }; }
+  renderVals() {
+    const s = this.state;
+    const L = [
+      { id: 'rao', who: 'Ms. Rao · Maths', when: 'Tomorrow', load: '6B and 7B · periods 2 and 5', sub: 'Mr. Iyer', why: 'free both periods, teaches Maths to 7A', altName: 'Ms. Kulkarni' },
+      { id: 'fern', who: 'Mr. Fernandes · Science', when: 'Today', load: '8A, 8B, 8C · periods 1, 3, 6', sub: 'Ms. Kulkarni', why: 'free in periods 1 and 3, teaches Science to Class 7', altName: 'Mr. Menon' },
+      { id: 'bhat', who: 'Mrs. Bhat · Hindi', when: 'Today', load: '2A and 3A · periods 4 and 7', sub: 'Ms. Joseph', why: 'free both periods, teaches Hindi to Class 4', altName: 'Mrs. Sinha' }
+    ];
+    const leaves = L.map((l) => {
+      const a = s.act[l.id];
+      return { who: l.who, when: l.when, load: l.load, sub: l.sub, why: l.why, altName: l.altName,
+        open: !a, done: !!a,
+        result: a === 'ok' ? l.sub + ' confirmed · timetable updated · ' + l.sub + ' notified on the teacher app' : a === 'alt' ? l.altName + ' confirmed · timetable updated' : '',
+        box: 'display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px; ' + (a ? 'background: #F8FAFC; border: 1px solid #E2E8F0;' : 'background: #FFFFFF; border: 1px solid #CBD5E1;'),
+        approve: () => this.setState({ act: { ...s.act, [l.id]: 'ok' } }),
+        alt: () => this.setState({ act: { ...s.act, [l.id]: 'alt' } }) };
+    });
+    const DAY = { 'Present': 'background: #DCFCE7; color: #166534;', 'On leave': 'background: #FEE2E2; color: #991B1B;', 'Leave tomorrow': 'background: #FEF3C7; color: #92400E;' };
+    const T = [
+      ['Ms. Rao', 'Maths · 6B (class teacher), 7B', 'Leave tomorrow', '8:05 AM · 2 taps', '9 of 9', '2'],
+      ['Mr. Iyer', 'Maths · 7A, 8A', 'Present', '8:12 AM', '8 of 8', '1'],
+      ['Ms. Thomas', 'English · 3C (class teacher)', 'Present', '8:09 AM', '10 of 10', '1'],
+      ['Mr. Fernandes', 'Science · 8A, 8B, 8C', 'On leave', 'Marked by substitute', '6 of 9', '0'],
+      ['Mrs. D’Souza', 'Science · 9B (class teacher)', 'Present', '8:20 AM', '7 of 8', '1'],
+      ['Mrs. Bhat', 'Hindi · 2A, 3A', 'On leave', 'Marked by substitute', '8 of 8', '0'],
+      ['Ms. Kulkarni', 'Science · 7A, 7B', 'Present', '8:41 AM · late', '8 of 8', '1']
+    ];
+    return {
+      leaves,
+      teachers: T.map(([name, subj, day, att, hw, wait]) => ({ name, subj, day, att, hw, wait,
+        dayStyle: 'padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; ' + DAY[day] }))
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

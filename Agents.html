@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Hire your agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1100px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <aside style="flex: 1 1 360px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 48px 44px 40px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 44px; height: 44px; border-radius: 12px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px">School OS</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #FCD58A">Sunrise Public School · Bengaluru</div>
+      <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.12; letter-spacing: -0.02em">Hire your AI office staff.</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #D6DEF5; max-width: 400px">Pick who works for you, set their rules, and decide what always comes to you for approval.</p>
+    </div>
+    <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+        <a href="Main.html" style="font-size: 16px; color: #D6DEF5">Your school <span style="color: #9FB0DD">· done</span></a>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #22C55E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+        <a href="Teach.html" style="font-size: 16px; color: #D6DEF5">Teach School OS <span style="color: #9FB0DD">· done</span></a>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #F5A524; color: #0F2A5F; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px">3</span>
+        <span style="font-weight: 600; font-size: 16px">Hire your AI agents</span>
+      </li>
+    </ol>
+    <div style="background: #17377A; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-weight: 600; font-size: 15px">You stay in charge</div>
+      <div style="font-size: 13px; color: #C3CEEC; line-height: 1.5">Fee waivers, complaints and anything about a child's safety always reach a person. Every chat and call is logged for you to review.</div>
+    </div>
+    <div style="margin-top: auto; font-size: 13px; color: #AEBBE2">Demo prototype · fictional school and sample data</div>
+  </aside>
+
+  <main style="flex: 999 1 620px; min-width: 0; box-sizing: border-box; padding: 40px 48px 48px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="font-size: 14px; color: #475569"><strong style="color: #0F172A">Step 3 of 3</strong> · about 3 minutes</div>
+      <div style="font-size: 14px; color: #475569"><strong style="color: #0F172A">{{hiredCount}} of 4</strong> agents hired</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+      <template data-sc-for list="{{agents}}" as="ag" hint-placeholder-count="4">
+        <div style="{{ag.card}}">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: #EEF2FB; display: flex; align-items: center; justify-content: center">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ag.icon}}"></path></svg>
+            </div>
+            <button onClick="{{ag.toggle}}" aria-pressed="{{ag.hired}}" aria-label="{{ag.hireLabel}}" style="{{ag.switchStyle}}"><span style="{{ag.knob}}"></span></button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 17px">{{ag.title}}</div>
+            <div style="font-size: 14px; color: #475569; line-height: 1.45">{{ag.role}}</div>
+          </div>
+          <div style="font-size: 13px; color: #475569">{{ag.channels}}</div>
+          <button onClick="{{ag.select}}" style="{{ag.cfgBtn}}">{{ag.cfgLabel}}</button>
+        </div>
+      </template>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <section style="flex: 3 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700">{{sel.title}} · rules</h2>
+          <span style="{{sel.badge}}">{{sel.status}}</span>
+        </div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+          <template data-sc-for list="{{rules}}" as="r" hint-placeholder-count="4">
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border: 1px solid #E2E8F0; border-radius: 12px">
+              <button onClick="{{r.toggle}}" aria-pressed="{{r.on}}" aria-label="{{r.text}}" style="{{r.box}}">
+                <template data-sc-if value="{{r.on}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></template>
+              </button>
+              <span style="font-size: 15px; line-height: 1.4">{{r.text}}</span>
+            </li>
+          </template>
+        </ul>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+          <span style="font-size: 14px; font-weight: 600">Tone</span>
+          <div role="group" aria-label="Tone" style="display: flex; background: #E8ECF5; border-radius: 999px; padding: 4px">
+            <button onClick="{{setWarm}}" style="{{warmStyle}}">Warm</button>
+            <button onClick="{{setFormal}}" style="{{formalStyle}}">Formal</button>
+          </div>
+          <span style="font-size: 14px; color: #475569">Calls only between 9 AM and 7 PM</span>
+        </div>
+      </section>
+
+      <section style="flex: 2 1 320px; min-width: 0; background: #E9F1EC; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <div style="width: 36px; height: 36px; border-radius: 50%; background: #0F2A5F; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">SP</div>
+          <div style="display: flex; flex-direction: column">
+            <span style="font-weight: 600; font-size: 15px">Sunrise Public School</span>
+            <span style="font-size: 12px; color: #3F5A4A">Preview on WhatsApp · {{toneName}} tone</span>
+          </div>
+        </div>
+        <template data-sc-if value="{{sel.hasIn}}" hint-placeholder-val="{{ true }}">
+          <div style="align-self: flex-end; max-width: 85%; background: #DCF8C6; padding: 10px 14px; border-radius: 14px 14px 4px 14px; font-size: 15px; line-height: 1.45">{{sel.inMsg}}</div>
+        </template>
+        <div style="align-self: flex-start; max-width: 90%; background: #FFFFFF; padding: 10px 14px; border-radius: 14px 14px 14px 4px; font-size: 15px; line-height: 1.5">{{reply}}</div>
+        <template data-sc-if value="{{sel.hasCta}}" hint-placeholder-val="{{ false }}">
+          <span style="align-self: flex-start; padding: 8px 16px; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font-weight: 600; font-size: 14px; border: 1px solid #C9D7CE">{{sel.cta}}</span>
+        </template>
+        <div style="font-size: 12px; color: #3F5A4A">Sample conversation · fictional parent and student</div>
+      </section>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 8px">
+      <a href="Teach.html" style="height: 52px; padding: 0 22px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #0F2A5F; font: 600 15px Inter, sans-serif; display: flex; align-items: center; gap: 8px; text-decoration: none">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Back
+      </a>
+      <a href="Today.html" style="height: 52px; padding: 0 28px; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 16px 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 10px; text-decoration: none">Go live with {{hiredCount}} agents
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { hired: { parent: true, fee: true, adm: true, teacher: true }, sel: 'fee', off: {}, tone: { parent: 'warm', fee: 'warm', adm: 'warm', teacher: 'formal' } };
+  }
+  seg(on) {
+    return 'height: 36px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer; font: 600 14px Inter, sans-serif; ' + (on ? 'background: #FFFFFF; color: #0F2A5F; box-shadow: 0 1px 2px rgba(15,23,42,.12);' : 'background: transparent; color: #475569;');
+  }
+  renderVals() {
+    const s = this.state;
+    const A = [
+      { id: 'parent', title: 'Parent Desk', role: 'Answers parent questions 24/7 from what it learned', channels: 'WhatsApp · Voice', icon: 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',
+        rules: ["Reply in the parent's own language", 'Send complaints to the office within 15 minutes', 'Pass anything medical or safety-related to staff at once', 'Hand over to a person whenever unsure'],
+        inMsg: 'Is school open on 26 Jan?', warm: 'Hello! School is closed on 26 January for Republic Day. Have a lovely holiday!', formal: 'Dear Parent, the school will remain closed on 26 January on account of Republic Day.' },
+      { id: 'fee', title: 'Fee Recovery', role: 'Follows up on dues until they are paid', channels: 'WhatsApp · UPI · Voice', icon: 'M3 6h18v12H3zM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z',
+        rules: ['Day 0 · WhatsApp reminder with UPI link', "Day 3 · Second reminder in the parent's language", 'Day 7 · Polite AI voice call', 'Day 14 · Hand over to the accounts office', 'Waivers and extensions always need your approval'],
+        inMsg: '', warm: "Namaste! A gentle reminder that Aarav's Term 3 fee of ₹18,500 is due on 10 January. You can pay in one tap below.", formal: "Dear Parent, Aarav's Term 3 fee of ₹18,500 is due on 10 January. Kindly pay using the link below.", cta: 'Pay ₹18,500 via UPI' },
+      { id: 'adm', title: 'Admissions', role: 'Turns enquiries into school visits and forms', channels: 'WhatsApp · Website · Voice', icon: 'M9 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM2.5 20c.8-3.4 3.4-5.5 6.5-5.5s5.7 2.1 6.5 5.5M17 8v6M14 11h6',
+        rules: ['Answer new enquiries within 2 minutes, day or night', 'Offer tour slots from the office calendar', 'Follow up on day 1 and day 4 after a visit', 'Pass ready-to-join families to the counsellor'],
+        inMsg: 'Are Class 1 admissions open for next year?', warm: 'Yes, Class 1 admissions for 2027-28 are open! Would you like to visit us this Saturday at 10 AM or 11:30 AM?', formal: 'Dear Parent, Class 1 admissions for 2027-28 are open. Visit slots are available on Saturday at 10 AM and 11:30 AM.' },
+      { id: 'teacher', title: 'Teacher Assistant', role: 'Turns teacher notes into parent updates', channels: 'Teacher app · WhatsApp', icon: 'M9 3h6v11H9zM5 11a7 7 0 0 0 14 0M12 18v3',
+        rules: ['Alert parents of an absent child within 10 minutes', 'Teacher approves homework before it goes out', "Post homework in each parent's language", "Keep teachers' personal numbers hidden"],
+        inMsg: '', warm: 'Homework for Class 6B Maths: Chapter 4, Exercise 2, questions 1 to 10. Please submit by Thursday. Happy learning!', formal: 'Class 6B · Mathematics homework: Chapter 4, Exercise 2, Q1–10. Due Thursday. — Ms. Rao' }
+    ];
+    const agents = A.map((a) => {
+      const hired = !!s.hired[a.id], on = s.sel === a.id;
+      return {
+        title: a.title, role: a.role, channels: a.channels, icon: a.icon, hired,
+        hireLabel: (hired ? 'Hired: ' : 'Hire ') + a.title,
+        card: 'display: flex; flex-direction: column; gap: 12px; padding: 18px; border-radius: 16px; background: #FFFFFF; box-sizing: border-box; ' + (on ? 'border: 2px solid #0F2A5F;' : 'border: 1px solid #E2E8F0;') + (hired ? '' : ' opacity: 0.7;'),
+        switchStyle: 'width: 52px; height: 30px; flex: 0 0 52px; border-radius: 999px; border: 0; padding: 3px; cursor: pointer; display: flex; ' + (hired ? 'background: #16A34A; justify-content: flex-end;' : 'background: #94A3B8; justify-content: flex-start;'),
+        knob: 'width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; display: block',
+        toggle: () => this.setState({ hired: { ...s.hired, [a.id]: !hired } }),
+        cfgLabel: on ? 'Configuring' : 'Set rules',
+        cfgBtn: 'height: 44px; border-radius: 10px; cursor: pointer; font: 600 14px Inter, sans-serif; ' + (on ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F2A5F; border: 1px solid #CBD5E1;'),
+        select: () => this.setState({ sel: a.id })
+      };
+    });
+    const cur = A.find((a) => a.id === s.sel);
+    const hiredCur = !!s.hired[cur.id];
+    const rules = cur.rules.map((t, i) => {
+      const key = cur.id + i, on = !s.off[key];
+      return { text: t, on, toggle: () => this.setState({ off: { ...s.off, [key]: on } }),
+        box: 'width: 26px; height: 26px; flex: 0 0 26px; border-radius: 7px; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; ' + (on ? 'background: #0F2A5F; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; border: 1.5px solid #94A3B8;') };
+    });
+    const tone = s.tone[cur.id];
+    return {
+      agents, rules,
+      hiredCount: A.filter((a) => s.hired[a.id]).length,
+      sel: { title: cur.title, status: hiredCur ? 'Hired' : 'Not hired',
+        badge: 'padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; ' + (hiredCur ? 'background: #DCFCE7; color: #166534;' : 'background: #F1F5F9; color: #475569;'),
+        hasIn: !!cur.inMsg, inMsg: cur.inMsg, hasCta: !!cur.cta, cta: cur.cta || '' },
+      reply: tone === 'warm' ? cur.warm : cur.formal,
+      toneName: tone === 'warm' ? 'Warm' : 'Formal',
+      warmStyle: this.seg(tone === 'warm'), formalStyle: this.seg(tone === 'formal'),
+      setWarm: () => this.setState({ tone: { ...s.tone, [cur.id]: 'warm' } }),
+      setFormal: () => this.setState({ tone: { ...s.tone, [cur.id]: 'formal' } })
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

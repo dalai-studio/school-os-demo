@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS Teacher — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+<style>body{background:#0B1F47!important;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:24px 0;box-sizing:border-box}#app{border-radius:36px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.4)}@media(max-width:420px){body{padding:0}#app{border-radius:0}}</style>
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="width: 390px; height: 844px; display: flex; flex-direction: column; background: #F6F7FB; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; overflow: hidden; box-sizing: border-box">
+
+  <header style="background: #0F2A5F; color: #FFFFFF; padding: 22px 20px 18px; display: flex; flex-direction: column; gap: 4px">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <span style="font-size: 13px; color: #C3CEEC">Thu, 7 Jan · Ms. Rao · Class 6B</span>
+      <span style="padding: 3px 10px; border-radius: 999px; background: #F5A524; color: #0F2A5F; font-size: 11px; font-weight: 800">School OS</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 800">{{title}}</h1>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+
+    <template data-sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
+      <div style="background: #DCFCE7; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.45; color: #14532D">Leave approved for tomorrow. <strong>Mr. Iyer</strong> covers 6B and 7B.</div>
+      <div style="font-size: 13px; font-weight: 700; color: #475569; letter-spacing: 0.04em">TODAY'S TASKS</div>
+      <template data-sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
+        <button onClick="{{t.go}}" style="display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; border: 1px solid #E2E8F0; background: #FFFFFF; cursor: pointer; text-align: left; font-family: Inter, sans-serif">
+          <span style="{{t.dot}}"></span>
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px">
+            <span style="font-weight: 600; font-size: 15px; color: #0F172A">{{t.label}}</span>
+            <span style="font-size: 13px; color: {{t.color}}">{{t.status}}</span>
+          </span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+        </button>
+      </template>
+      <div style="font-size: 13px; font-weight: 700; color: #475569; letter-spacing: 0.04em; margin-top: 4px">TIMETABLE</div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 4px 14px">
+        <div style="display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F6; font-size: 14px"><span style="width: 52px; color: #475569">8:00</span><span><strong>6B</strong> · Maths · class teacher</span></div>
+        <div style="display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #EEF1F6; font-size: 14px"><span style="width: 52px; color: #475569">10:10</span><span><strong>7B</strong> · Maths</span></div>
+        <div style="display: flex; gap: 12px; padding: 10px 0; font-size: 14px"><span style="width: 52px; color: #475569">12:30</span><span><strong>6B</strong> · Maths revision</span></div>
+      </div>
+    </template>
+
+    <template data-sc-if value="{{isAtt}}" hint-placeholder-val="{{ false }}">
+      <template data-sc-if value="{{attOpen}}" hint-placeholder-val="{{ true }}">
+        <div style="font-size: 14px; line-height: 1.45; color: #334155">Everyone starts as <strong>present</strong>. Tap only the students who are absent.</div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+          <template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="42">
+            <button onClick="{{k.toggle}}" aria-pressed="{{k.absent}}" aria-label="{{k.label}}" style="{{k.style}}"><span style="font-size: 11px; opacity: 0.8">{{k.roll}}</span>{{k.name}}</button>
+          </template>
+        </div>
+      </template>
+      <template data-sc-if value="{{attDone}}" hint-placeholder-val="{{ false }}">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #DCFCE7; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800">Attendance saved</div>
+          <div style="font-size: 15px">{{attSummary}}</div>
+          <div style="font-size: 14px; color: #334155; line-height: 1.5">{{attAlert}}</div>
+          <button onClick="{{reAtt}}" style="align-self: flex-start; height: 44px; padding: 0 14px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Edit attendance</button>
+        </div>
+      </template>
+    </template>
+
+    <template data-sc-if value="{{isHw}}" hint-placeholder-val="{{ false }}">
+      <template data-sc-if value="{{hwIdle}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 8px 8px; text-align: center">
+          <button onClick="{{record}}" aria-label="Record homework" style="width: 128px; height: 128px; border-radius: 50%; border: 0; background: #F5A524; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px #FDECC8">
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg>
+          </button>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800">Tap and speak the homework</div>
+          <div style="font-size: 14px; color: #475569; line-height: 1.5">Say it the way you'd tell the class. Hindi, English or a mix is fine. You'll check it before it goes out.</div>
+        </div>
+      </template>
+      <template data-sc-if value="{{hwRec}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 8px 8px; text-align: center">
+          <div style="width: 128px; height: 128px; border-radius: 50%; background: #DC2626; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 12px #FEE2E2"><span style="width: 36px; height: 36px; border-radius: 8px; background: #FFFFFF"></span></div>
+          <div role="status" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800">Listening…</div>
+          <div style="font-size: 15px; color: #334155; font-style: italic; line-height: 1.5">"6B maths homework, chapter 4, exercise 2, questions 1 to 10, submit by Thursday"</div>
+        </div>
+      </template>
+      <template data-sc-if value="{{hwDraft}}" hint-placeholder-val="{{ false }}">
+        <div style="font-size: 13px; color: #475569; font-style: italic">You said: "6B maths homework, chapter 4, exercise 2, questions 1 to 10, submit by Thursday"</div>
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Class</span><span style="font-weight: 600">6B · 42 parents</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Subject</span><span style="font-weight: 600">Mathematics</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Task</span><span style="font-weight: 600">Ch. 4, Ex. 2, Q1–10</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Due</span><span style="font-weight: 600">Thursday, 14 Jan</span></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <span style="font-size: 13px; font-weight: 700; color: #475569">PARENTS WILL SEE</span>
+          <div role="tablist" aria-label="Preview language" style="display: flex; background: #E8ECF5; border-radius: 999px; padding: 3px">
+            <button role="tab" aria-selected="{{hwEn}}" onClick="{{setEn}}" style="{{enStyle}}">English</button>
+            <button role="tab" aria-selected="{{hwHi}}" onClick="{{setHi}}" style="{{hiStyle}}">हिंदी</button>
+          </div>
+        </div>
+        <div style="background: #E9F1EC; border-radius: 14px; padding: 12px">
+          <div style="background: #FFFFFF; border-radius: 12px 12px 12px 4px; padding: 10px 12px; font-size: 14px; line-height: 1.5">{{hwPreview}}</div>
+        </div>
+        <button onClick="{{sendHw}}" style="height: 52px; border: 0; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 16px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Send to 42 parents</button>
+        <button onClick="{{record}}" style="height: 44px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Record again</button>
+      </template>
+      <template data-sc-if value="{{hwSent}}" hint-placeholder-val="{{ false }}">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #DCFCE7; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 800">Homework sent</div>
+          <div style="font-size: 14px; color: #334155; line-height: 1.5">42 parents got it on WhatsApp, each in their own language. Parents of absent students got it too.</div>
+          <button onClick="{{newHw}}" style="align-self: flex-start; height: 44px; padding: 0 14px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Record another</button>
+        </div>
+      </template>
+    </template>
+
+    <template data-sc-if value="{{isMsg}}" hint-placeholder-val="{{ false }}">
+      <div style="font-size: 13px; color: #475569; line-height: 1.5">Parents see the school's number, never yours. The AI drafts a reply; you check and send.</div>
+      <template data-sc-for list="{{msgs}}" as="m" hint-placeholder-count="2">
+        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><strong>{{m.from}}</strong><span style="color: #475569">{{m.time}}</span></div>
+          <div style="background: #F1F5F9; border-radius: 12px 12px 12px 4px; padding: 10px 12px; font-size: 14px; line-height: 1.5">{{m.q}}</div>
+          <template data-sc-if value="{{m.hasNote}}" hint-placeholder-val="{{ false }}"><div style="font-size: 12px; color: #475569">{{m.note}}</div></template>
+          <div style="font-size: 12px; font-weight: 700; color: #475569">{{m.draftLabel}}</div>
+          <div style="{{m.draftStyle}}">{{m.a}}</div>
+          <template data-sc-if value="{{m.open}}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; gap: 8px">
+              <button onClick="{{m.send}}" style="flex: 1; height: 44px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Send reply</button>
+              <button onClick="{{m.edit}}" style="flex: 1; height: 44px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Edit first</button>
+            </div>
+          </template>
+        </div>
+      </template>
+    </template>
+
+    <template data-sc-if value="{{isRem}}" hint-placeholder-val="{{ false }}">
+      <div style="font-size: 13px; color: #475569">Term 2 report cards · remarks due Friday</div>
+      <div role="group" aria-label="Student" style="display: flex; gap: 8px; flex-wrap: wrap">
+        <template data-sc-for list="{{studs}}" as="st" hint-placeholder-count="3">
+          <button onClick="{{st.pick}}" aria-pressed="{{st.on}}" style="{{st.style}}">{{st.name}}</button>
+        </template>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <div style="font-weight: 700; font-size: 16px">{{rem.name}}</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Attendance</span><span style="font-weight: 600">{{rem.att}}</span></div>
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #475569; font-weight: 600">Maths, Term 1 → 2</span><span style="font-weight: 600">{{rem.marks}}</span></div>
+        </div>
+        <div style="font-size: 13px; color: #475569">Homework on time: {{rem.hw}}</div>
+      </div>
+      <div style="font-size: 12px; font-weight: 700; color: #475569">AI-SUGGESTED REMARK</div>
+      <div style="background: #FFF8EB; border: 1px solid #F5D9A0; border-radius: 14px; padding: 14px; font-size: 15px; line-height: 1.55">{{rem.text}}</div>
+      <template data-sc-if value="{{rem.open}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; gap: 8px">
+          <button onClick="{{rem.use}}" style="flex: 1; height: 48px; border: 0; border-radius: 12px; background: #0F2A5F; color: #FFFFFF; font: 600 15px Inter, sans-serif; cursor: pointer">Use this</button>
+          <button onClick="{{rem.again}}" style="flex: 1; height: 48px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #0F2A5F; font: 600 15px Inter, sans-serif; cursor: pointer">Suggest another</button>
+        </div>
+      </template>
+      <template data-sc-if value="{{rem.used}}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="font-size: 14px; font-weight: 600; color: #166534">Added to {{rem.first}}'s Term 2 report card</div>
+      </template>
+    </template>
+  </main>
+
+  <template data-sc-if value="{{showSubmit}}" hint-placeholder-val="{{ false }}">
+    <div style="padding: 10px 16px; background: #FFFFFF; border-top: 1px solid #E2E8F0">
+      <button onClick="{{submitAtt}}" style="width: 100%; height: 52px; border: 0; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 16px 'Plus Jakarta Sans', sans-serif; cursor: pointer">{{submitLabel}}</button>
+    </div>
+  </template>
+
+  <nav aria-label="Teacher app" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: #FFFFFF; border-top: 1px solid #E2E8F0; padding: 6px 4px 14px">
+    <template data-sc-for list="{{tabs}}" as="tb" hint-placeholder-count="5">
+      <button onClick="{{tb.go}}" aria-current="{{tb.cur}}" style="{{tb.style}}">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{tb.color}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{tb.icon}}"></path></svg>
+        <span>{{tb.label}}</span>
+      </button>
+    </template>
+  </nav>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { screen: p.start || 'home', absent: {}, attDone: false, hw: 'idle', hwLang: 'en', sent: {}, edit: {}, stud: 'aarav', variant: {}, used: {} };
+    this.NAMES = ['Aarav Sharma', 'Aditi Kulkarni', 'Akash Reddy', 'Ananya Joshi', 'Arjun Menon', 'Bhavya Singh', 'Chirag Patel', 'Diya Nair', 'Esha Gupta', 'Farhan Ali', 'Gauri Desai', 'Harsh Yadav', 'Ishita Bose', 'Ira Hegde', 'Jai Verma', 'Kavya Iyer', 'Krish Malhotra', 'Lavanya Rao', 'Manav Shetty', 'Meera Pillai', 'Neel Chopra', 'Nisha Das', 'Om Prakash', 'Pari Saxena', 'Pranav Gowda', 'Riya Khanna', 'Rohan Mehta', 'Saanvi Jain', 'Sahil Kapoor', 'Sara Thomas', 'Shaurya Mishra', 'Sneha Kamath', 'Tanvi Bhat', 'Tejas Naik', 'Uday Kumar', 'Vaani Agarwal', 'Ved Pandey', 'Vihaan Reddy', 'Yash Tiwari', 'Zoya Khan', 'Aryan Dubey', 'Myra Fernandes'];
+  }
+  componentWillUnmount() { clearTimeout(this.t); }
+  renderVals() {
+    const s = this.state;
+    const go = (sc) => () => this.setState({ screen: sc });
+    const TITLES = { home: 'Good morning, Ms. Rao', att: 'Attendance · 6B', hw: 'Homework · 6B Maths', msg: 'Parent messages', rem: 'Report-card remarks' };
+    const absentList = this.NAMES.filter((n, i) => s.absent[i]);
+    const nAbs = absentList.length;
+    const msgDefs = [
+      { id: 'm1', from: 'Aarav Sharma’s parent', time: '8:20 AM', q: 'आरव आज बीमार है। क्या आज का होमवर्क भेज सकते हैं?', note: 'Translation: Aarav is unwell today. Can you send today’s homework?', a: 'जी ज़रूर। आज का होमवर्क: अध्याय 4, अभ्यास 2, प्रश्न 1–10, गुरुवार तक। आरव जल्दी ठीक हो जाए!' },
+      { id: 'm2', from: 'Ishita Bose’s parent', time: '7:55 AM', q: 'Ishita missed Monday’s maths test because of a family function. Can she take it later?', note: '', a: 'Yes, Ishita can take the test on Monday in period 3. I’ll keep the paper ready.' }
+    ];
+    const pendingMsgs = msgDefs.filter((m) => !s.sent[m.id]).length;
+    const tasks = [
+      { label: 'Mark 6B attendance', status: s.attDone ? 'Done · ' + (42 - nAbs) + ' present, ' + nAbs + ' absent · parents alerted' : 'Pending · takes 2 taps', done: s.attDone, sc: 'att' },
+      { label: 'Post 6B Maths homework', status: s.hw === 'sent' ? 'Sent to 42 parents' : 'Pending · speak it in 20 seconds', done: s.hw === 'sent', sc: 'hw' },
+      { label: 'Parent messages', status: pendingMsgs ? pendingMsgs + ' AI-drafted replies to check' : 'All replied', done: !pendingMsgs, sc: 'msg' },
+      { label: 'Term 2 remarks', status: Object.keys(s.used).length + ' of 3 sample students done · due Friday', done: Object.keys(s.used).length === 3, sc: 'rem' }
+    ].map((t) => ({ ...t, color: t.done ? '#166534' : '#92400E', go: go(t.sc),
+      dot: 'width: 12px; height: 12px; flex: 0 0 12px; border-radius: 50%; ' + (t.done ? 'background: #16A34A;' : 'background: #F5A524;') }));
+    const kids = this.NAMES.map((n, i) => {
+      const a = !!s.absent[i];
+      return { name: n.split(' ')[0], roll: String(i + 1).padStart(2, '0'), absent: a, label: n + (a ? ', absent' : ', present'),
+        style: 'min-height: 48px; padding: 6px 8px; border-radius: 10px; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1px; font: 600 14px Inter, sans-serif; text-align: left; ' + (a ? 'background: #FEE2E2; color: #991B1B; border: 1.5px solid #DC2626;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #E2E8F0;'),
+        toggle: () => this.setState({ absent: { ...s.absent, [i]: !a } }) };
+    });
+    const seg = (on) => 'height: 32px; padding: 0 12px; border: 0; border-radius: 999px; cursor: pointer; font: 600 13px Inter, \'Noto Sans Devanagari\', sans-serif; ' + (on ? 'background: #FFFFFF; color: #0F2A5F; box-shadow: 0 1px 2px rgba(15,23,42,.12);' : 'background: transparent; color: #475569;');
+    const REM = {
+      aarav: { name: 'Aarav Sharma', att: '91%', marks: '64 → 72', hw: '17 of 19', t: ['Aarav has improved steadily in Maths this term, especially in fractions. Regular practice of word problems will help him move further.', 'Aarav participates actively and his Maths score rose from 64 to 72. He should focus on showing every step in his working.'] },
+      ishita: { name: 'Ishita Bose', att: '96%', marks: '81 → 79', hw: '19 of 19', t: ['Ishita is sincere and never misses homework. With a little more care in calculations, she can get back above 80.', 'Ishita’s work is neat and consistent. Revising geometry formulas before tests will help her score higher.'] },
+      vihaan: { name: 'Vihaan Reddy', att: '84%', marks: '58 → 66', hw: '14 of 19', t: ['Vihaan has shown good progress in Maths this term. More regular attendance and homework will help him keep this up.', 'Vihaan understands concepts quickly. Completing homework on time will make his improvement more steady.'] }
+    };
+    const r = REM[s.stud];
+    const v = s.variant[s.stud] || 0;
+    const TABS = [
+      ['home', 'Home', 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'],
+      ['att', 'Attendance', 'M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9'],
+      ['hw', 'Homework', 'M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3'],
+      ['msg', 'Messages', 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'],
+      ['rem', 'Remarks', 'M4 20h4L19 9l-4-4L4 16zM13 7l4 4']
+    ];
+    return {
+      title: TITLES[s.screen],
+      isHome: s.screen === 'home', isAtt: s.screen === 'att', isHw: s.screen === 'hw', isMsg: s.screen === 'msg', isRem: s.screen === 'rem',
+      tasks, kids,
+      attOpen: !s.attDone, attDone: s.attDone,
+      showSubmit: s.screen === 'att' && !s.attDone,
+      submitLabel: 'Submit · ' + (42 - nAbs) + ' present, ' + nAbs + ' absent',
+      submitAtt: () => this.setState({ attDone: true }),
+      reAtt: () => this.setState({ attDone: false }),
+      attSummary: (42 - nAbs) + ' present · ' + nAbs + ' absent',
+      attAlert: nAbs ? 'WhatsApp alerts sent to the parents of ' + absentList.join(', ') + '. If an alert is unread in 10 minutes, the AI calls the parent.' : 'Full attendance today. No alerts needed.',
+      hwIdle: s.hw === 'idle', hwRec: s.hw === 'rec', hwDraft: s.hw === 'draft', hwSent: s.hw === 'sent',
+      record: () => { this.setState({ hw: 'rec' }); clearTimeout(this.t); this.t = setTimeout(() => this.setState({ hw: 'draft' }), 1800); },
+      sendHw: () => this.setState({ hw: 'sent' }), newHw: () => this.setState({ hw: 'idle' }),
+      hwEn: s.hwLang === 'en', hwHi: s.hwLang === 'hi', enStyle: seg(s.hwLang === 'en'), hiStyle: seg(s.hwLang === 'hi'),
+      setEn: () => this.setState({ hwLang: 'en' }), setHi: () => this.setState({ hwLang: 'hi' }),
+      hwPreview: s.hwLang === 'en' ? 'Class 6B · Maths homework: Chapter 4, Exercise 2, questions 1–10. Please submit by Thursday, 14 January. — Ms. Rao' : 'कक्षा 6B · गणित गृहकार्य: अध्याय 4, अभ्यास 2, प्रश्न 1–10। कृपया गुरुवार, 14 जनवरी तक जमा करें। — सुश्री राव',
+      msgs: msgDefs.map((m) => {
+        const sent = !!s.sent[m.id], ed = !!s.edit[m.id];
+        return { from: m.from, time: m.time, q: m.q, a: m.a, note: m.note, hasNote: !!m.note, open: !sent && !ed,
+          draftLabel: sent ? 'SENT AS THE SCHOOL' : ed ? 'OPENED FOR EDITING' : 'AI-DRAFTED REPLY',
+          draftStyle: 'border-radius: 12px 12px 4px 12px; padding: 10px 12px; font-size: 14px; line-height: 1.5; ' + (sent ? 'background: #DCF8C6;' : 'background: #FFFFFF; border: 1px dashed #94A3B8;'),
+          send: () => this.setState({ sent: { ...s.sent, [m.id]: true } }),
+          edit: () => this.setState({ edit: { ...s.edit, [m.id]: true } }) };
+      }),
+      studs: Object.keys(REM).map((k) => ({ name: REM[k].name.split(' ')[0], on: s.stud === k,
+        style: 'height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer; font: 600 14px Inter, sans-serif; ' + (s.stud === k ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;'),
+        pick: () => this.setState({ stud: k }) })),
+      rem: { name: r.name, first: r.name.split(' ')[0], att: r.att, marks: r.marks, hw: r.hw, text: r.t[v % 2],
+        open: !s.used[s.stud], used: !!s.used[s.stud],
+        use: () => this.setState({ used: { ...s.used, [s.stud]: true } }),
+        again: () => this.setState({ variant: { ...s.variant, [s.stud]: v + 1 } }) },
+      tabs: TABS.map(([id, label, icon]) => {
+        const on = s.screen === id;
+        return { label, icon, cur: on ? 'page' : 'false', color: on ? '#0F2A5F' : '#64748B',
+          style: 'display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 52px; justify-content: center; border: 0; background: transparent; cursor: pointer; font: ' + (on ? '700' : '500') + ' 11px Inter, sans-serif; color: ' + (on ? '#0F2A5F' : '#64748B'),
+          go: go(id) };
+      })
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

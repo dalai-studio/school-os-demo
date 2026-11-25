@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Welcome</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+input:focus,button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1040px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <aside style="flex: 1 1 420px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 48px 48px 40px; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 44px; height: 44px; border-radius: 12px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.01em">School OS</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #FCD58A">Your AI school office</div>
+      <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.02em">{{headline}}</h1>
+      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #D6DEF5; max-width: 440px">{{subline}}</p>
+    </div>
+
+    <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; background: #F5A524; color: #0F2A5F; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px">1</span>
+        <span style="font-weight: 600; font-size: 16px">Your school</span>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #7D93CC; color: #D6DEF5; font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 14px; box-sizing: border-box">2</span>
+        <span style="font-size: 16px; color: #D6DEF5">Teach School OS your fees, calendar &amp; rules</span>
+      </li>
+      <li style="display: flex; align-items: center; gap: 14px">
+        <span style="width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid #7D93CC; color: #D6DEF5; font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 14px; box-sizing: border-box">3</span>
+        <span style="font-size: 16px; color: #D6DEF5">Hire your AI agents</span>
+      </li>
+    </ol>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+      <div style="background: #17377A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCD58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg>
+        <div style="font-weight: 600; font-size: 15px">Parent Desk</div>
+        <div style="font-size: 13px; color: #C3CEEC; line-height: 1.4">Answers parents 24/7 on WhatsApp</div>
+      </div>
+      <div style="background: #17377A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCD58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle></svg>
+        <div style="font-weight: 600; font-size: 15px">Fee Recovery</div>
+        <div style="font-size: 13px; color: #C3CEEC; line-height: 1.4">Reminders, UPI links, voice calls</div>
+      </div>
+      <div style="background: #17377A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCD58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.4 3.4-5.5 6.5-5.5s5.7 2.1 6.5 5.5"></path><path d="M17 8v6M14 11h6"></path></svg>
+        <div style="font-weight: 600; font-size: 15px">Admissions</div>
+        <div style="font-size: 13px; color: #C3CEEC; line-height: 1.4">Enquiry to visit to form</div>
+      </div>
+      <div style="background: #17377A; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FCD58A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg>
+        <div style="font-weight: 600; font-size: 15px">Teacher Assistant</div>
+        <div style="font-size: 13px; color: #C3CEEC; line-height: 1.4">Voice note to homework, 2-tap attendance</div>
+      </div>
+    </div>
+
+    <div style="margin-top: auto; font-size: 13px; color: #AEBBE2">Demo prototype · fictional school and sample data</div>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 40px 56px 48px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <div style="font-size: 14px; color: #475569"><strong style="color: #0F172A">Step 1 of 3</strong> · about 2 minutes</div>
+      <div role="group" aria-label="Interface language" style="display: flex; background: #E8ECF5; border-radius: 999px; padding: 4px">
+        <button onClick="{{setEn}}" style="{{enStyle}}">English</button>
+        <button onClick="{{setHi}}" style="{{hiStyle}}">हिंदी</button>
+      </div>
+    </div>
+
+    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 28px; max-width: 820px; width: 100%; box-sizing: border-box">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Tell us about your school</h2>
+        <p style="margin: 0; font-size: 15px; color: #475569">This sets up your agents' language, tone and audience. You can change it any time.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px">
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">School name
+          <input value="{{name}}" onChange="{{onName}}" style="height: 48px; border: 1px solid #CBD5E1; border-radius: 12px; padding: 0 14px; font: 500 16px Inter, sans-serif; color: #0F172A">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">City
+          <input value="{{city}}" onChange="{{onCity}}" style="height: 48px; border: 1px solid #CBD5E1; border-radius: 12px; padding: 0 14px; font: 500 16px Inter, sans-serif; color: #0F172A">
+        </label>
+      </div>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+        <legend style="font-size: 14px; font-weight: 600; padding: 0; margin-bottom: 10px">Board</legend>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <template data-sc-for list="{{boards}}" as="b" hint-placeholder-count="4">
+            <button onClick="{{b.pick}}" aria-pressed="{{b.on}}" style="{{b.style}}">{{b.label}}</button>
+          </template>
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+        <legend style="font-size: 14px; font-weight: 600; padding: 0; margin-bottom: 10px">Number of students</legend>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <template data-sc-for list="{{sizes}}" as="s" hint-placeholder-count="4">
+            <button onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="{{s.style}}">{{s.label}}</button>
+          </template>
+        </div>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px">
+        <legend style="font-size: 14px; font-weight: 600; padding: 0; margin-bottom: 4px">Languages parents speak</legend>
+        <div style="font-size: 13px; color: #475569; margin-bottom: 6px">Agents will message and call parents in these. {{langCount}}</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <template data-sc-for list="{{langs}}" as="l" hint-placeholder-count="8">
+            <button onClick="{{l.pick}}" aria-pressed="{{l.on}}" style="{{l.style}}">{{l.label}}</button>
+          </template>
+        </div>
+      </fieldset>
+
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; max-width: 380px">School WhatsApp number
+        <input value="{{phone}}" onChange="{{onPhone}}" inputmode="tel" style="height: 48px; border: 1px solid #CBD5E1; border-radius: 12px; padding: 0 14px; font: 500 16px Inter, sans-serif; color: #0F172A">
+        <span style="font-weight: 400; font-size: 13px; color: #475569">Parents see this number. Teachers' personal numbers stay hidden.</span>
+      </label>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-top: 8px; border-top: 1px solid #E2E8F0">
+        <a href="Teach.html" style="height: 52px; padding: 0 28px; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 16px 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; gap: 10px; text-decoration: none">Continue to Teach School OS
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <button style="height: 52px; padding: 0 20px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #0F2A5F; font: 600 15px Inter, sans-serif; cursor: pointer">Connect existing ERP instead</button>
+        <span style="font-size: 14px; color: #475569">{{summary}}</span>
+      </div>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { ui: 'en', name: 'Sunrise Public School', city: 'Bengaluru', phone: '+91 80000 00000', board: 'CBSE', size: '800–1,500', langs: { en: true, hi: true, kn: true }, saved: false };
+  }
+  pill(on) {
+    return 'height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer; font: 600 15px Inter, \'Noto Sans Devanagari\', sans-serif; ' +
+      (on ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;');
+  }
+  seg(on) {
+    return 'height: 36px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer; font: 600 14px Inter, \'Noto Sans Devanagari\', sans-serif; ' +
+      (on ? 'background: #FFFFFF; color: #0F2A5F; box-shadow: 0 1px 2px rgba(15,23,42,.12);' : 'background: transparent; color: #475569;');
+  }
+  renderVals() {
+    const s = this.state;
+    const boards = ['CBSE', 'ICSE', 'State Board', 'IB / Cambridge'].map((x) => ({ label: x, on: s.board === x, style: this.pill(s.board === x), pick: () => this.setState({ board: x, saved: false }) }));
+    const sizes = ['Under 300', '300–800', '800–1,500', '1,500+'].map((x) => ({ label: x, on: s.size === x, style: this.pill(s.size === x), pick: () => this.setState({ size: x, saved: false }) }));
+    const L = [['en', 'English'], ['hi', 'हिंदी'], ['kn', 'ಕನ್ನಡ'], ['or', 'ଓଡ଼ିଆ'], ['ta', 'தமிழ்'], ['te', 'తెలుగు'], ['bn', 'বাংলা'], ['mr', 'मराठी']];
+    const langs = L.map(([id, label]) => {
+      const on = !!s.langs[id];
+      return { label, on, style: this.pill(on), pick: () => this.setState({ langs: { ...s.langs, [id]: !on }, saved: false }) };
+    });
+    const n = langs.filter((l) => l.on).length;
+    const hi = s.ui === 'hi';
+    return {
+      headline: hi ? 'अपना AI स्कूल ऑफ़िस नियुक्त करें' : 'Hire your AI school office',
+      subline: hi ? 'अपने स्कूल के बारे में बताइए। School OS बाक़ी सीख लेगा, फिर अभिभावकों के सवाल, फ़ीस रिमाइंडर, एडमिशन और शिक्षकों के अपडेट संभालेगा।' : 'Tell us about your school. School OS learns the rest, then handles parent queries, fee reminders, admissions and teacher updates.',
+      enStyle: this.seg(!hi), hiStyle: this.seg(hi),
+      setEn: () => this.setState({ ui: 'en' }), setHi: () => this.setState({ ui: 'hi' }),
+      name: s.name, city: s.city, phone: s.phone,
+      onName: (e) => this.setState({ name: e.target.value, saved: false }),
+      onCity: (e) => this.setState({ city: e.target.value, saved: false }),
+      onPhone: (e) => this.setState({ phone: e.target.value, saved: false }),
+      boards, sizes, langs,
+      langCount: n + (n === 1 ? ' language selected.' : ' languages selected.'),
+      saved: s.saved,
+      summary: s.name + ', ' + s.city + ' · ' + s.board + ' · ' + s.size + ' students · ' + n + ' languages',
+      onContinue: () => this.setState({ saved: true })
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

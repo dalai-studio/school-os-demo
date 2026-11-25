@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Fee Recovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1300px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; color: #0F2A5F;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">Fee Recovery agent</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">Calls only 9 AM–7 PM · Warm tone · Waivers and extensions need your approval</div>
+      <a href="Agents.html" style="font-size: 14px; color: #FCD58A">Edit rules</a>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 14px; color: #475569">Thursday, 7 January · Sunrise Public School</div>
+        <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Fee Recovery</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <template data-sc-if value="{{campaignDone}}" hint-placeholder-val="{{ false }}">
+          <span role="status" style="font-size: 14px; font-weight: 600; color: #166534">Voice calls queued for 81 families · today 10 AM–6 PM</span>
+        </template>
+        <button onClick="{{runCampaign}}" style="height: 48px; padding: 0 20px; border: 0; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 15px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Call all 60+ day families</button>
+      </div>
+    </header>
+
+    <section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Overdue now</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">₹47.0 L</div>
+        <div style="font-size: 13px; color: #475569">389 families · 212 over 30 days</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Collected through AI follow-up</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #166534">₹1.03 Cr</div>
+        <div style="font-size: 13px; color: #475569">555 families paid this month</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Paid without any staff call</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">87%</div>
+        <div style="font-size: 13px; color: #475569">555 of 640 families reminded</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Handed to accounts office</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">85</div>
+        <div style="font-size: 13px; color: #475569">families after Day 14</div>
+      </div>
+    </section>
+
+    <section aria-label="Reminder ladder" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Reminder ladder · this month</h2>
+        <span style="font-size: 14px; color: #475569">640 families reached the ladder · days counted from the due date</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+        <template data-sc-for list="{{ladder}}" as="st" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 14px; background: #F8FAFC; border: 1px solid #E2E8F0">
+            <div style="font-size: 13px; font-weight: 700; color: #475569">{{st.day}}</div>
+            <div style="font-weight: 600; font-size: 15px">{{st.name}}</div>
+            <div style="font-size: 14px; color: #475569">{{st.reached}} families</div>
+            <div style="height: 8px; border-radius: 999px; background: #E2E8F0; overflow: hidden"><div style="{{st.bar}}"></div></div>
+            <div style="font-size: 14px; font-weight: 600; color: {{st.color}}">{{st.out}}</div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+      <section aria-label="Overdue families" style="flex: 3 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Overdue families</h2>
+          <div role="group" aria-label="Filter by days overdue" style="display: flex; flex-wrap: wrap; gap: 8px">
+            <template data-sc-for list="{{buckets}}" as="b" hint-placeholder-count="4">
+              <button onClick="{{b.pick}}" aria-pressed="{{b.on}}" style="{{b.style}}">{{b.label}}</button>
+            </template>
+          </div>
+        </div>
+        <div style="font-size: 13px; color: #475569">{{bucketNote}}</div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px">
+            <thead>
+              <tr style="text-align: left; color: #475569; font-size: 13px">
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Student</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Due for</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Amount</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0; text-align: right">Days</th>
+                <th style="padding: 8px 10px; font-weight: 600; border-bottom: 1px solid #E2E8F0">Ladder stage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+                <tr style="{{r.rowStyle}}">
+                  <td style="padding: 6px 10px; border-bottom: 1px solid #EEF1F6"><button onClick="{{r.pick}}" style="background: none; border: 0; padding: 8px 0; cursor: pointer; text-align: left; font: 600 14px Inter, sans-serif; color: #0F2A5F; text-decoration: underline; text-underline-offset: 3px">{{r.name}}</button><div style="font-size: 12px; color: #475569">Class {{r.cls}}</div></td>
+                  <td style="padding: 6px 10px; border-bottom: 1px solid #EEF1F6; color: #334155">{{r.item}}</td>
+                  <td style="padding: 6px 10px; border-bottom: 1px solid #EEF1F6; text-align: right; font-weight: 600">{{r.amt}}</td>
+                  <td style="padding: 6px 10px; border-bottom: 1px solid #EEF1F6; text-align: right">{{r.days}}</td>
+                  <td style="padding: 6px 10px; border-bottom: 1px solid #EEF1F6"><span style="{{r.stageStyle}}">{{r.stage}}</span></td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+        <div style="font-size: 13px; color: #475569">Showing a sample of 8 families · the full list has 389</div>
+      </section>
+
+      <section aria-label="Family detail" style="flex: 2 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="font-size: 13px; color: #475569">Class {{d.cls}} · parent: {{d.parent}}</div>
+          <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700">{{d.name}}</h2>
+          <div style="font-size: 15px"><strong>{{d.amt}}</strong> · {{d.item}} · {{d.days}} days overdue</div>
+        </div>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+          <template data-sc-for list="{{d.steps}}" as="t" hint-placeholder-count="4">
+            <li style="display: flex; gap: 12px; align-items: flex-start">
+              <span style="{{t.dot}}"></span>
+              <div style="display: flex; flex-direction: column; gap: 2px">
+                <span style="font-size: 14px; font-weight: 600; color: {{t.color}}">{{t.label}}</span>
+                <span style="font-size: 13px; color: #475569">{{t.note}}</span>
+              </div>
+            </li>
+          </template>
+        </ol>
+        <template data-sc-if value="{{d.hasCall}}" hint-placeholder-val="{{ true }}">
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
+            <div style="font-size: 13px; font-weight: 700; color: #475569">AI call summary</div>
+            <div style="font-size: 14px; line-height: 1.5">{{d.call}}</div>
+          </div>
+        </template>
+        <template data-sc-if value="{{d.open}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <button onClick="{{d.doCall}}" style="height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Call now</button>
+            <button onClick="{{d.doExtend}}" style="height: 44px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Approve 15-day extension</button>
+            <button onClick="{{d.doPause}}" style="height: 44px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Pause reminders</button>
+          </div>
+        </template>
+        <template data-sc-if value="{{d.closed}}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{d.result}}</div>
+        </template>
+      </section>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { bucket: 'all', sel: 'kabir', act: {}, campaign: false }; }
+  stageOf(d) { return d < 3 ? 0 : d < 7 ? 1 : d < 14 ? 2 : 3; }
+  renderVals() {
+    const s = this.state;
+    const STAGES = ['WhatsApp + UPI link', 'Second reminder', 'AI voice call', 'Accounts office'];
+    const SST = ['background: #E0F2FE; color: #075985;', 'background: #E0E7FF; color: #3730A3;', 'background: #FEF3C7; color: #92400E;', 'background: #FEE2E2; color: #991B1B;'];
+    const F = [
+      { id: 'arjun', name: 'Arjun Nair', cls: '1C', parent: 'Mrs. Lakshmi Nair', item: 'Term 2 balance', amt: 18500, days: 1 },
+      { id: 'faiz', name: 'Mohammed Faiz', cls: '3A', parent: 'Mr. Imran Faiz', item: 'Transport (Dec)', amt: 9250, days: 5 },
+      { id: 'riya', name: 'Riya Menon', cls: '2B', parent: 'Mr. Suresh Menon', item: 'Term 2 balance', amt: 18500, days: 9, call: 'Parent picked up and said the payment was missed by mistake. Sent the UPI link again during the call; parent will pay today.' },
+      { id: 'aditi', name: 'Aditi Rao', cls: '9A', parent: 'Mrs. Kavitha Rao', item: 'Activity fee', amt: 6500, days: 12, call: 'No answer on the first try. Retried at 5 PM; parent asked for the fee breakup, which was sent on WhatsApp.' },
+      { id: 'ananya', name: 'Ananya Gowda', cls: '8C', parent: 'Mr. Ramesh Gowda', item: 'Term 2', amt: 18500, days: 38, call: 'Parent said they paid by bank transfer on 2 Jan. Flagged to accounts to check the bank statement.' },
+      { id: 'kabir', name: 'Kabir Singh', cls: '5A', parent: 'Mrs. Harpreet Kaur', item: 'Term 2 + Transport', amt: 37000, days: 44, call: 'Parent said salary arrives on the 12th and promised to pay by 13 January. Reminder set for the 13th; a 15-day extension request is pending your approval.' },
+      { id: 'sneha', name: 'Sneha Reddy', cls: '7A', parent: 'Mr. Venkat Reddy', item: 'Term 2', amt: 18500, days: 63, call: 'Parent asked to pay in two parts. The agent cannot agree to instalments, so it passed this to the accounts office.' },
+      { id: 'ishaan', name: 'Ishaan Patil', cls: '10B', parent: 'Mr. Nitin Patil', item: 'Term 1 + Term 2 + Transport', amt: 55500, days: 71, call: 'Three calls unanswered. Accounts office scheduled an in-person meeting with the parent on Friday.' }
+    ];
+    const inB = (d) => s.bucket === 'all' || (s.bucket === 'b1' && d <= 30) || (s.bucket === 'b2' && d > 30 && d <= 60) || (s.bucket === 'b3' && d > 60);
+    const inr = (n) => '₹' + n.toLocaleString('en-IN');
+    const rows = F.filter((f) => inB(f.days)).map((f) => {
+      const st = this.stageOf(f.days);
+      return { name: f.name, cls: f.cls, item: f.item, amt: inr(f.amt), days: f.days, stage: STAGES[st],
+        stageStyle: 'padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; white-space: nowrap; ' + SST[st],
+        rowStyle: s.sel === f.id ? 'background: #FFF8EB' : '',
+        pick: () => this.setState({ sel: f.id }) };
+    });
+    const B = [
+      { id: 'all', label: 'All' , note: 'All buckets: ₹47.0 L across 389 families' },
+      { id: 'b1', label: '0–30 days', note: '0–30 days: ₹14.2 L across 177 families' },
+      { id: 'b2', label: '31–60 days', note: '31–60 days: ₹18.9 L across 131 families' },
+      { id: 'b3', label: '60+ days', note: '60+ days: ₹13.9 L across 81 families' }
+    ];
+    const buckets = B.map((b) => ({ label: b.label, on: s.bucket === b.id,
+      style: 'height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer; font: 600 14px Inter, sans-serif; ' + (s.bucket === b.id ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;'),
+      pick: () => this.setState({ bucket: b.id }) }));
+    const f = F.find((x) => x.id === s.sel);
+    const st = this.stageOf(f.days);
+    const DAYS = ['Day 0', 'Day 3', 'Day 7', 'Day 14'];
+    const NOTES = ['WhatsApp with UPI link · read', 'Reminder in Hindi and English · read', f.call ? 'Call completed · summary below' : 'Scheduled', 'Passed to accounts office · AI keeps weekly nudges'];
+    const steps = STAGES.map((lab, i) => {
+      const done = i <= st;
+      return { label: DAYS[i] + ' · ' + lab, note: done ? NOTES[i] : 'Not reached', color: done ? '#0F172A' : '#64748B',
+        dot: 'width: 14px; height: 14px; flex: 0 0 14px; margin-top: 3px; border-radius: 50%; ' + (done ? 'background: #0F2A5F;' : 'background: #FFFFFF; border: 2px solid #CBD5E1; box-sizing: border-box;') };
+    });
+    const a = s.act[f.id];
+    const RES = { call: 'Calling ' + f.parent + ' now · summary will appear here', extend: 'Extension approved to 22 January · parent informed on WhatsApp', pause: 'Reminders paused for 7 days · noted on the family record' };
+    const setA = (k) => () => this.setState({ act: { ...s.act, [f.id]: k } });
+    return {
+      openFamilies: '212',
+      nav: [
+        { label: 'Parent chats', badge: '15' },
+        { label: 'Complaints', badge: '3' }, { label: 'Staff', badge: '' }, { label: 'Monthly ROI', badge: '' }
+      ].map((n) => ({ ...n, badgeStyle: n.badge ? 'min-width: 22px; padding: 1px 8px; border-radius: 999px; background: #17377A; color: #FCD58A; font-size: 12px; font-weight: 700; text-align: center' : 'display: none' })),
+      ladder: [
+        { day: 'DAY 0', name: 'WhatsApp + UPI link', reached: 640, paid: 402 },
+        { day: 'DAY 3', name: 'Second reminder', reached: 238, paid: 96 },
+        { day: 'DAY 7', name: 'AI voice call', reached: 142, paid: 57 },
+        { day: 'DAY 14', name: 'Accounts office', reached: 85, paid: 0 }
+      ].map((x) => ({ ...x, out: x.paid ? x.paid + ' paid at this step' : 'Handled by staff',
+        color: x.paid ? '#166534' : '#991B1B',
+        bar: 'height: 100%; width: ' + Math.round((x.reached / 640) * 100) + '%; background: ' + (x.paid ? '#0F2A5F' : '#DC2626') + '; border-radius: 999px' })),
+      buckets, rows, bucketNote: B.find((b) => b.id === s.bucket).note,
+      d: { name: f.name, cls: f.cls, parent: f.parent, item: f.item, amt: inr(f.amt), days: f.days, steps,
+        hasCall: !!f.call && st >= 2, call: f.call || '', open: !a, closed: !!a, result: a ? RES[a] : '',
+        doCall: setA('call'), doExtend: setA('extend'), doPause: setA('pause') },
+      campaignDone: s.campaign, runCampaign: () => this.setState({ campaign: true })
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

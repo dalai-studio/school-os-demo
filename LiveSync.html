@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Live Sync demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B1F47}
+a{color:#FCD58A}a:hover{color:#FFFFFF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1000px; background: #0B1F47; color: #FFFFFF; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; padding: 28px 32px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <div style="width: 40px; height: 40px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 22px">School OS · one day, three people, one system</span>
+        <span style="font-size: 13px; color: #AEBBE2">Demo prototype · fictional school and sample data</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px">
+      <button onClick="{{back}}" style="height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #3B5498; background: transparent; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Back</button>
+      <button onClick="{{next}}" style="height: 44px; padding: 0 20px; border-radius: 10px; border: 0; background: #F5A524; color: #0F2A5F; font: 700 15px 'Plus Jakarta Sans', sans-serif; cursor: pointer">{{nextLabel}}</button>
+      <button onClick="{{play}}" style="height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #3B5498; background: transparent; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">{{playLabel}}</button>
+      <button onClick="{{reset}}" style="height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #3B5498; background: transparent; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Reset</button>
+    </div>
+  </header>
+
+  <ol aria-label="Story steps" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px">
+    <template data-sc-for list="{{steps}}" as="st" hint-placeholder-count="7">
+      <li><button onClick="{{st.go}}" aria-current="{{st.cur}}" style="{{st.style}}"><span style="font-size: 12px; font-weight: 700; opacity: 0.85">{{st.time}}</span><span style="font-size: 13px; line-height: 1.35">{{st.short}}</span></button></li>
+    </template>
+  </ol>
+
+  <div role="status" style="background: #17377A; border-radius: 14px; padding: 14px 18px; font-size: 17px; line-height: 1.5; display: flex; gap: 12px; align-items: baseline">
+    <strong style="color: #FCD58A; white-space: nowrap">{{capTime}}</strong><span>{{caption}}</span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: center">
+
+    <section aria-label="Principal laptop" style="flex: 1 1 560px; min-width: 0; max-width: 820px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 13px; font-weight: 700; color: #AEBBE2; letter-spacing: 0.06em">PRINCIPAL · LAPTOP</div>
+      <div style="{{lapRing}}">
+        <div style="background: #F6F7FB; color: #0F172A; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-height: 560px">
+          <div style="background: #0F2A5F; color: #FFFFFF; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center">
+            <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800">Today · Sunrise Public School</span>
+            <span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: #DCFCE7; color: #166534; font-weight: 700">Live</span>
+          </div>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 14px; position: relative; flex: 1">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+              <template data-sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+                <div style="{{t.style}}">
+                  <span style="font-size: 12px; color: #475569; font-weight: 600">{{t.label}}</span>
+                  <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 800; color: #0F2A5F">{{t.value}}</span>
+                  <span style="font-size: 12px; color: #475569">{{t.note}}</span>
+                </div>
+              </template>
+            </div>
+            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1">
+              <div style="font-weight: 700; font-size: 14px; margin-bottom: 4px">Live activity</div>
+              <template data-sc-if value="{{feedEmpty}}" hint-placeholder-val="{{ false }}"><div style="font-size: 14px; color: #475569">Waiting for the school day to start…</div></template>
+              <template data-sc-for list="{{feed}}" as="f" hint-placeholder-count="4">
+                <div style="{{f.style}}"><span style="flex: 0 0 52px; font-weight: 600; color: #475569">{{f.t}}</span><span>{{f.text}}</span></div>
+              </template>
+            </div>
+            <template data-sc-if value="{{showRoi}}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; inset: 16px; background: #0F2A5F; color: #FFFFFF; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px; justify-content: center">
+                <div style="font-size: 13px; color: #C3CEEC">Last 30 days · what the AI office delivered</div>
+                <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+                  <div><div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800">373 h</div><div style="font-size: 13px; color: #C3CEEC">staff time freed</div></div>
+                  <div><div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800; color: #FCD58A">₹1.03 Cr</div><div style="font-size: 13px; color: #C3CEEC">collected through AI follow-up</div></div>
+                  <div><div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800">4,860</div><div style="font-size: 13px; color: #C3CEEC">parent questions answered</div></div>
+                  <div><div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 34px; font-weight: 800">3.6×</div><div style="font-size: 13px; color: #C3CEEC">return on staff time (example price)</div></div>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px"><a href="ROI.html">Open the full ROI report</a><a href="Today.html">Open the full dashboard</a></div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Teacher phone" style="flex: 0 0 300px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 13px; font-weight: 700; color: #AEBBE2; letter-spacing: 0.06em">TEACHER · MS. RAO'S PHONE</div>
+      <div style="{{teaRing}}">
+        <div style="width: 276px; height: 580px; border-radius: 26px; overflow: hidden; background: #F6F7FB; color: #0F172A; display: flex; flex-direction: column">
+          <div style="background: #0F2A5F; color: #FFFFFF; padding: 16px 14px 12px">
+            <div style="font-size: 11px; color: #C3CEEC">Thu, 7 Jan · Class 6B</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 18px">{{teaTitle}}</div>
+          </div>
+          <div style="flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+            <template data-sc-if value="{{teaAtt}}" hint-placeholder-val="{{ true }}">
+              <div style="font-size: 13px; color: #334155">All present by default. Tap who's absent.</div>
+              <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+                <template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="9">
+                  <span style="{{k.style}}">{{k.name}}</span>
+                </template>
+              </div>
+              <div style="font-size: 12px; color: #475569">+ 33 more students</div>
+              <button onClick="{{doStep1}}" style="margin-top: auto; height: 48px; border: 0; border-radius: 12px; background: #F5A524; color: #0F2A5F; font: 700 15px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Submit · 40 present, 2 absent</button>
+            </template>
+            <template data-sc-if value="{{teaMid}}" hint-placeholder-val="{{ false }}">
+              <div style="background: #DCFCE7; color: #14532D; border-radius: 12px; padding: 10px 12px; font-size: 13px">Attendance saved 8:05 · parents of Aarav and Kavya alerted</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 24px; text-align: center">
+                <button onClick="{{doStep4}}" aria-label="Speak homework" style="{{micStyle}}">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg>
+                </button>
+                <div style="font-weight: 700">Speak the homework</div>
+                <div style="font-size: 12px; color: #475569">Becomes a clean post for 42 parents</div>
+              </div>
+            </template>
+            <template data-sc-if value="{{teaDone}}" hint-placeholder-val="{{ false }}">
+              <div style="background: #DCFCE7; color: #14532D; border-radius: 12px; padding: 10px 12px; font-size: 13px">Attendance saved 8:05 · 2 parents alerted</div>
+              <div style="background: #DCFCE7; color: #14532D; border-radius: 12px; padding: 10px 12px; font-size: 13px">Homework sent 9:02 · 42 parents, English &amp; Hindi</div>
+              <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 10px 12px; font-size: 13px; line-height: 1.45"><strong>You said:</strong> "6B maths homework, chapter 4, exercise 2, questions 1 to 10, by Thursday"</div>
+              <div style="font-size: 12px; color: #475569">Time spent on admin this morning: under 1 minute</div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Parent phone" style="flex: 0 0 300px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 13px; font-weight: 700; color: #AEBBE2; letter-spacing: 0.06em">PARENT · AARAV'S MOTHER</div>
+      <div style="{{parRing}}">
+        <div style="width: 276px; height: 580px; border-radius: 26px; overflow: hidden; background: #ECE5DD; color: #0F172A; display: flex; flex-direction: column; position: relative">
+          <div style="background: #0B5D51; color: #FFFFFF; padding: 16px 12px 12px; display: flex; gap: 10px; align-items: center">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #F5A524; color: #0F2A5F; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px">SPS</div>
+            <div style="display: flex; flex-direction: column"><span style="font-weight: 600; font-size: 14px">Sunrise Public School</span><span style="font-size: 11px; color: #CDE7E1">WhatsApp · school account</span></div>
+          </div>
+          <div style="flex: 1; padding: 10px; display: flex; flex-direction: column-reverse; gap: 6px; overflow: hidden">
+            <template data-sc-for list="{{pmsgs}}" as="m" hint-placeholder-count="3">
+              <div style="{{m.wrap}}">
+                <div style="{{m.bubble}}">
+                  <div style="font-size: 10px; font-weight: 700; color: #0B5D51">{{m.tag}}</div>
+                  <div style="font-size: 13px; line-height: 1.4">{{m.text}}</div>
+                  <div style="font-size: 11px; color: #52606D; line-height: 1.35">{{m.sub}}</div>
+                  <div style="font-size: 10px; color: #667781; text-align: right">{{m.time}}</div>
+                </div>
+                <template data-sc-if value="{{m.pay}}" hint-placeholder-val="{{ false }}">
+                  <button onClick="{{doStep5}}" style="height: 40px; border: 0; border-radius: 8px; background: #FFFFFF; color: #0B5D51; font: 700 13px Inter, sans-serif; cursor: pointer">Pay ₹18,500 via UPI</button>
+                </template>
+              </div>
+            </template>
+            <template data-sc-if value="{{noMsgs}}" hint-placeholder-val="{{ true }}"><div style="align-self: center; margin-bottom: auto; padding: 4px 10px; border-radius: 8px; background: #DDE8F0; font-size: 11px; color: #334155">No new messages</div></template>
+          </div>
+          <template data-sc-if value="{{onCall}}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; inset: 0; background: #0F2A5F; color: #FFFFFF; padding: 26px 14px 18px; display: flex; flex-direction: column; gap: 10px">
+              <div style="text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center">
+                <div style="width: 56px; height: 56px; border-radius: 50%; background: #F5A524; color: #0F2A5F; display: flex; align-items: center; justify-content: center; font-weight: 800">SPS</div>
+                <div style="font-weight: 700">Sunrise Public School</div>
+                <div style="font-size: 11px; color: #FCD58A">AI assistant · on call 0:32</div>
+              </div>
+              <div style="background: #17377A; border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.4">आरव आज स्कूल नहीं आया, क्या सब ठीक है?<div style="font-size: 11px; color: #AEBBE2">Aarav didn't come today. Is everything all right?</div></div>
+              <div style="align-self: flex-end; background: #FFFFFF; color: #0F172A; border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.4">हाँ, उसे बुखार है।<div style="font-size: 11px; color: #475569">Yes, he has a fever.</div></div>
+              <div style="background: #17377A; border-radius: 10px; padding: 8px 10px; font-size: 13px; line-height: 1.4">जल्दी ठीक हो जाए। छुट्टी दर्ज कर ली है।<div style="font-size: 11px; color: #AEBBE2">Get well soon. Leave recorded.</div></div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { step: 0, playing: false }; }
+  componentWillUnmount() { clearInterval(this.iv); }
+  renderVals() {
+    const s = this.state, k = s.step;
+    const S = [
+      { time: '8:05', short: 'Teacher marks attendance', actor: 't', cap: 'Ms. Rao taps the two absent students and submits. 2 taps, done in seconds.' },
+      { time: '8:10', short: 'Parent gets absence alert', actor: 'p', cap: 'Aarav’s mother gets a WhatsApp alert in Hindi within minutes. The principal sees it happen.' },
+      { time: '8:17', short: 'AI calls the parent', actor: 'p', cap: 'The alert is unread, so the AI calls in Hindi, learns Aarav has a fever, and records the leave.' },
+      { time: '9:02', short: 'Voice note → homework', actor: 't', cap: 'Ms. Rao speaks the homework once. 42 parents get it in their own language, including Aarav’s.' },
+      { time: '9:10', short: 'Fee paid by UPI', actor: 'p', cap: 'The fee reminder has a one-tap UPI link. The parent pays; the principal’s collection updates instantly.' },
+      { time: '9:31', short: 'Admission enquiry won', actor: 'l', cap: 'A new family asks about Class 1. The AI replies in under a minute and books a Saturday tour.' },
+      { time: 'Month end', short: 'ROI for the principal', actor: 'l', cap: 'The principal sees what the AI office delivered: hours freed, fees collected, questions answered.' }
+    ];
+    const go = (n) => this.setState({ step: Math.max(0, Math.min(7, n)) });
+    const ring = (on) => 'padding: 8px; border-radius: ' + (on ? '22px' : '22px') + '; background: #1A2F5E; ' + (on ? 'box-shadow: 0 0 0 4px #F5A524;' : 'box-shadow: 0 0 0 1px #2B447F;');
+    const cur = k > 0 ? S[k - 1] : null;
+    const nextActor = k < 7 ? S[k].actor : '';
+    const F = [];
+    if (k >= 1) F.push(['8:05', 'Ms. Rao marked 6B attendance in 2 taps · 2 absent']);
+    if (k >= 2) F.push(['8:10', 'Absence alerts sent on WhatsApp to 2 parents in 6B']);
+    if (k >= 3) F.push(['8:17', 'AI voice call to Aarav’s parent: fever, leave recorded']);
+    if (k >= 4) F.push(['9:02', '6B Maths homework sent to 42 parents in English and Hindi']);
+    if (k >= 5) F.push(['9:10', '₹18,500 received via UPI from Aarav Sharma’s parent']);
+    if (k >= 6) F.push(['9:31', 'Class 1 enquiry answered in under a minute · tour booked Sat 10 AM']);
+    const feed = F.reverse().map(([t, text], i) => ({ t, text, style: 'display: flex; gap: 8px; font-size: 14px; line-height: 1.45; padding: 6px 8px; border-radius: 8px; ' + (i === 0 ? 'background: #FFF8EB;' : '') }));
+    const tile = (label, value, note, hot) => ({ label, value, note, style: 'display: flex; flex-direction: column; gap: 2px; padding: 12px; border-radius: 12px; background: #FFFFFF; ' + (hot ? 'border: 2px solid #F5A524;' : 'border: 1px solid #E2E8F0;') });
+    const tiles = [
+      tile('6B attendance', k >= 1 ? '40 / 42' : '—', k >= 1 ? 'marked 8:05 · 2 absent' : 'not marked yet', k === 1),
+      tile('Parents reached', k >= 3 ? '2 of 2' : k >= 2 ? '1 of 2' : '0', k >= 3 ? 'alert + 1 AI call' : k >= 2 ? 'WhatsApp alerts out' : 'no alerts yet', k === 2 || k === 3),
+      tile('Fees collected today', k >= 5 ? '₹2,50,000' : '₹2,31,500', k >= 5 ? '+₹18,500 just now' : 'from AI reminders', k === 5),
+      tile('Admission enquiries', k >= 6 ? '10' : '9', k >= 6 ? '1 new · tour booked' : 'overnight', k === 6)
+    ];
+    const KIDS = ['Aarav', 'Aditi', 'Akash', 'Ananya', 'Arjun', 'Bhavya', 'Chirag', 'Diya', 'Kavya'];
+    const kids = KIDS.map((n) => {
+      const ab = n === 'Aarav' || n === 'Kavya';
+      return { name: n, style: 'padding: 8px 6px; border-radius: 8px; font-size: 12px; font-weight: 600; text-align: center; ' + (ab ? 'background: #FEE2E2; color: #991B1B; border: 1.5px solid #DC2626;' : 'background: #FFFFFF; border: 1px solid #E2E8F0;') };
+    });
+    const P = [];
+    if (k >= 2) P.push({ tag: 'Attendance alert', text: 'आरव आज स्कूल में उपस्थित नहीं है। क्या सब ठीक है?', sub: 'Aarav is absent today. Is everything all right?', time: '8:10', out: false });
+    if (k >= 4) P.push({ tag: 'Call summary', text: 'कॉल पर बात हुई। छुट्टी दर्ज कर ली गई है। जल्दी ठीक हो जाए!', sub: 'Spoke on the call. Leave recorded. Get well soon!', time: '8:18', out: false });
+    if (k >= 4) P.push({ tag: 'Homework · Maths', text: 'अध्याय 4, अभ्यास 2, प्रश्न 1–10। गुरुवार तक।', sub: 'Chapter 4, Ex. 2, Q1–10. By Thursday.', time: '9:02', out: false });
+    if (k >= 4) P.push({ tag: 'Fee reminder', text: 'टर्म 3 फ़ीस ₹18,500, 10 जनवरी तक।', sub: 'Term 3 fee ₹18,500, due 10 January.', time: '9:05', out: false, pay: k === 4 });
+    if (k >= 5) P.push({ tag: 'Payment received', text: '₹18,500 प्राप्त हुए। रसीद संलग्न है। धन्यवाद!', sub: 'Received ₹18,500. Receipt attached.', time: '9:10', out: false });
+    const pmsgs = P.slice(-4).reverse().map((m) => ({ ...m, pay: !!m.pay,
+      wrap: 'display: flex; flex-direction: column; gap: 4px; max-width: 92%; align-self: flex-start',
+      bubble: 'background: #FFFFFF; border-radius: 8px 8px 8px 2px; padding: 6px 8px; box-shadow: 0 1px 1px rgba(0,0,0,.08); display: flex; flex-direction: column; gap: 2px' }));
+    const stop = () => { clearInterval(this.iv); };
+    return {
+      steps: S.map((x, i) => ({ time: x.time, short: x.short, cur: k === i + 1 ? 'step' : 'false',
+        style: 'width: 100%; min-height: 56px; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 8px 10px; border-radius: 10px; cursor: pointer; text-align: left; font-family: Inter, sans-serif; ' + (k === i + 1 ? 'background: #F5A524; color: #0F2A5F; border: 0;' : k > i + 1 ? 'background: #17377A; color: #FFFFFF; border: 0;' : 'background: transparent; color: #C3CEEC; border: 1px solid #3B5498;'),
+        go: () => { stop(); this.setState({ playing: false }); go(i + 1); } })),
+      capTime: cur ? cur.time : 'Start',
+      caption: cur ? cur.cap : 'Press Next, or tap the highlighted device, to walk through one school morning. Every device updates together.',
+      nextLabel: k >= 7 ? 'Done' : 'Next: ' + S[k].short,
+      next: () => go(k + 1), back: () => go(k - 1),
+      playLabel: s.playing ? 'Pause' : 'Play the story',
+      play: () => {
+        if (s.playing) { stop(); this.setState({ playing: false }); return; }
+        if (k >= 7) this.setState({ step: 0 });
+        this.setState({ playing: true });
+        stop();
+        this.iv = setInterval(() => {
+          const n = this.state.step + 1;
+          if (n > 7) { stop(); this.setState({ playing: false }); } else this.setState({ step: n });
+        }, 3800);
+      },
+      reset: () => { stop(); this.setState({ step: 0, playing: false }); },
+      lapRing: ring(nextActor === 'l' || (cur && cur.actor === 'l')),
+      teaRing: ring(nextActor === 't'), parRing: ring(nextActor === 'p' || k === 3),
+      tiles, feed, feedEmpty: F.length === 0, showRoi: k >= 7,
+      teaTitle: k < 1 ? 'Attendance · 6B' : k < 4 ? 'Homework · 6B Maths' : 'Done for the morning',
+      teaAtt: k < 1, teaMid: k >= 1 && k < 4, teaDone: k >= 4, kids,
+      micStyle: 'width: 96px; height: 96px; border-radius: 50%; border: 0; background: #F5A524; cursor: pointer; display: flex; align-items: center; justify-content: center; ' + (k === 3 ? 'box-shadow: 0 0 0 10px #FDECC8;' : ''),
+      doStep1: () => go(1), doStep4: () => go(k + 1), doStep5: () => go(5),
+      pmsgs, noMsgs: P.length === 0, onCall: k === 3
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

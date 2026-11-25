@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Admissions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1300px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; color: #0F2A5F;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">Admissions agent</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">Replies within 2 minutes, day or night · offers tour slots · follows up on day 1 and day 4</div>
+      <a href="Agents.html" style="font-size: 14px; color: #FCD58A">Edit rules</a>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 14px; color: #475569">Admissions 2027-28 · Sunrise Public School</div>
+        <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Admissions pipeline</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px">
+        <span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E8F0">Saturday tours: <strong>14 booked</strong> of 20 slots</span>
+      </div>
+    </header>
+
+    <section aria-label="Key numbers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px">
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Enquiries this season</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">128</div>
+        <div style="font-size: 13px; color: #475569">9 new overnight</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Enquiry → tour</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">29%</div>
+        <div style="font-size: 13px; color: #475569">37 of 128 booked or visited</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Tour → form</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #0F2A5F">38%</div>
+        <div style="font-size: 13px; color: #475569">14 forms from 37 tours</div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+        <div style="font-size: 14px; color: #475569; font-weight: 500">Arrived after office hours</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 32px; font-weight: 800; color: #166534">46</div>
+        <div style="font-size: 13px; color: #475569">36% of enquiries · all answered</div>
+      </div>
+    </section>
+
+    <section aria-label="Pipeline board" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">Families by stage</h2>
+        <span style="font-size: 13px; color: #475569">Click a family to see the conversation · sample cards shown per stage</span>
+      </div>
+      <div style="overflow-x: auto; padding-bottom: 6px">
+        <div style="display: grid; grid-template-columns: repeat(6, minmax(190px, 1fr)); gap: 12px; min-width: 1180px">
+          <template data-sc-for list="{{cols}}" as="c" hint-placeholder-count="6">
+            <div style="display: flex; flex-direction: column; gap: 10px; background: #F6F7FB; border-radius: 14px; padding: 12px; min-height: 320px">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 2px 4px">
+                <span style="font-weight: 700; font-size: 14px">{{c.name}}</span>
+                <span style="{{c.countStyle}}">{{c.count}}</span>
+              </div>
+              <template data-sc-for list="{{c.cards}}" as="k" hint-placeholder-count="2">
+                <button onClick="{{k.pick}}" style="{{k.style}}">
+                  <span style="display: flex; justify-content: space-between; gap: 6px; align-items: center">
+                    <span style="font-weight: 600; font-size: 14px; color: #0F172A">{{k.parent}}</span>
+                    <template data-sc-if value="{{k.hot}}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 8px; border-radius: 999px; background: #FEE2E2; color: #991B1B; font-size: 11px; font-weight: 700">Hot</span></template>
+                  </span>
+                  <span style="font-size: 13px; color: #334155">{{k.child}}</span>
+                  <span style="font-size: 12px; color: #475569">{{k.meta}}</span>
+                </button>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start">
+      <section aria-label="Family detail" style="flex: 3 1 460px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div style="font-size: 13px; color: #475569">{{d.source}} · {{d.when}}</div>
+            <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 700">{{d.parent}}</h2>
+            <div style="font-size: 15px">{{d.child}}</div>
+          </div>
+          <span style="padding: 6px 14px; border-radius: 999px; background: #EEF2FB; color: #0F2A5F; font-size: 13px; font-weight: 700">{{d.stage}}</span>
+        </div>
+        <div style="background: #E9F1EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+          <template data-sc-for list="{{d.chat}}" as="m" hint-placeholder-count="3">
+            <div style="{{m.style}}">{{m.text}}</div>
+          </template>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <div style="font-size: 13px; font-weight: 700; color: #475569">AI summary</div>
+          <div style="font-size: 14px; line-height: 1.5">{{d.summary}}</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+          <template data-sc-if value="{{d.canMove}}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{d.move}}" style="height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Move to {{d.next}}</button>
+          </template>
+          <button onClick="{{d.assign}}" style="height: 44px; padding: 0 16px; border: 1px solid #CBD5E1; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 600 14px Inter, sans-serif; cursor: pointer">Assign to counsellor</button>
+          <span role="status" style="font-size: 14px; font-weight: 600; color: #166534">{{d.note}}</span>
+        </div>
+      </section>
+
+      <section aria-label="Enquiry sources" style="flex: 2 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 700">Where enquiries come from</h2>
+        <template data-sc-for list="{{sources}}" as="sr" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; font-size: 14px"><span>{{sr.name}}</span><strong>{{sr.n}}</strong></div>
+            <div style="height: 10px; border-radius: 999px; background: #E8ECF5; overflow: hidden"><div style="{{sr.bar}}"></div></div>
+          </div>
+        </template>
+        <div style="font-size: 13px; color: #475569; line-height: 1.5">Every source lands in the same pipeline. Median first reply: under 1 minute.</div>
+      </section>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { sel: 'meera', moved: {}, assigned: {} }; }
+  renderVals() {
+    const s = this.state;
+    const STAGES = ['New enquiry', 'Counselled', 'Tour booked', 'Visited', 'Form submitted', 'Admitted'];
+    const BASE = [22, 55, 14, 23, 9, 5];
+    const P = (who, t) => ({ who, t });
+    const L = [
+      { id: 'neha', stage: 0, parent: 'Neha Kapoor', child: 'Son · LKG', source: 'Website', when: 'Yesterday 11:48 PM', meta: 'Website · 11:48 PM', hot: false,
+        chat: [P('p', 'Do you have LKG seats for 2027?'), P('a', 'Yes, LKG admissions for 2027-28 are open. May I know your child’s date of birth to check eligibility?')], summary: 'Asked late at night; eligibility check in progress. AI will follow up at 10 AM if no reply.' },
+      { id: 'rahul', stage: 0, parent: 'Rahul Verma', child: 'Daughter · Class 6', source: 'Phone call', when: 'Today 7:10 AM', meta: 'Phone · 7:10 AM', hot: false,
+        chat: [P('p', 'We are moving to Bengaluru in March. Is there space in Class 6?'), P('a', 'Welcome to Bengaluru! Class 6 has a few seats left. Would you like the fee structure and a tour slot?')], summary: 'Relocating family, mid-year move. Interested in fees and transport.' },
+      { id: 'fatima', stage: 1, parent: 'Fatima Shaikh', child: 'Son · Class 3', source: 'WhatsApp', when: 'Mon 6:20 PM', meta: 'WhatsApp · asked about transport', hot: false,
+        chat: [P('p', 'Is there a school bus from Hosa Road?'), P('a', 'Yes, Route 6 covers Hosa Road with a 7:15 AM pickup. Shall I book a tour so you can see the campus?')], summary: 'Transport is the deciding factor. Tour offered, awaiting slot choice.' },
+      { id: 'vikram', stage: 1, parent: 'Vikram Joshi', child: 'Daughter · Class 9', source: 'Referral', when: 'Sun 4:05 PM', meta: 'Referral · asked about results', hot: true,
+        chat: [P('p', 'How were your Class 10 board results last year?'), P('a', 'I’ll share the official results summary from the school office. Would a call with our academic coordinator help?')], summary: 'Referred by a current parent. Wants academic detail; a counsellor call is the best next step.' },
+      { id: 'meera', stage: 2, parent: 'Meera Iyer', child: 'Daughter · Class 1', source: 'WhatsApp', when: 'Today 9:31 AM', meta: 'Tour · Sat 10 AM', hot: true,
+        chat: [P('p', 'Are Class 1 admissions open for next year?'), P('a', 'Yes, Class 1 admissions for 2027-28 are open! Would you like to visit us this Saturday at 10 AM or 11:30 AM?'), P('p', '10 AM works.'), P('a', 'Booked for Saturday, 10 AM. I’ll send a reminder on Friday evening with directions.')], summary: 'Answered within a minute, tour booked in the same chat. Reminder scheduled for Friday 6 PM.' },
+      { id: 'sanjay', stage: 2, parent: 'Sanjay Kumar', child: 'Son · UKG', source: 'Website', when: 'Tue 8:40 PM', meta: 'Tour · Sat 11:30 AM', hot: false,
+        chat: [P('p', 'Can both parents come for the visit on Saturday?'), P('a', 'Of course. You’re booked for Saturday at 11:30 AM; the tour takes about 40 minutes.')], summary: 'Tour confirmed. Both parents attending.' },
+      { id: 'anita', stage: 3, parent: 'Anita Das', child: 'Son · Class 2', source: 'Walk-in', when: 'Visited Sat', meta: 'Day 1 follow-up sent', hot: true,
+        chat: [P('a', 'Thank you for visiting on Saturday! Shall I send the admission form link?'), P('p', 'Yes please, and the fee breakup.')], summary: 'Liked the campus. Form link and fee breakup sent; day 4 follow-up scheduled.' },
+      { id: 'karthik', stage: 3, parent: 'Karthik Rao', child: 'Daughter · Class 7', source: 'Referral', when: 'Visited Sat', meta: 'Asked about sibling concession', hot: false,
+        chat: [P('p', 'Her brother already studies here. Is there a sibling concession?'), P('a', 'Yes, there is a 10% sibling concession on tuition. I’ve added it to your fee estimate.')], summary: 'Sibling of a current student. Concession explained; likely to apply this week.' },
+      { id: 'deepa', stage: 4, parent: 'Deepa Menon', child: 'Daughter · Class 1', source: 'Website', when: 'Form in Mon', meta: 'Birth certificate pending', hot: false,
+        chat: [P('a', 'We’ve received the form. Please upload the birth certificate to complete it.'), P('p', 'Will upload tonight.')], summary: 'One document pending. AI reminds again tomorrow at 10 AM.' },
+      { id: 'rohan', stage: 5, parent: 'Rohan Gupta', child: 'Son · Class 4', source: 'WhatsApp', when: 'Admitted Tue', meta: 'Admission fee paid', hot: false,
+        chat: [P('a', 'Welcome to Sunrise Public School! Your receipt and the uniform list are attached.'), P('p', 'Thank you!')], summary: 'Admitted. Onboarding messages for uniform, books and transport sent.' }
+    ];
+    const stageOf = (l) => l.stage + (s.moved[l.id] || 0);
+    const counts = BASE.slice();
+    L.forEach((l) => { const m = s.moved[l.id] || 0; if (m) { counts[l.stage] -= 1; counts[l.stage + m] += 1; } });
+    const cols = STAGES.map((name, i) => ({
+      name, count: counts[i],
+      countStyle: 'min-width: 26px; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; ' + (i === 5 ? 'background: #DCFCE7; color: #166534;' : 'background: #FFFFFF; color: #0F2A5F;'),
+      cards: L.filter((l) => stageOf(l) === i).map((l) => ({
+        parent: l.parent, child: l.child, meta: l.meta, hot: l.hot,
+        style: 'display: flex; flex-direction: column; gap: 4px; text-align: left; padding: 12px; border-radius: 12px; cursor: pointer; font-family: Inter, sans-serif; background: #FFFFFF; ' + (s.sel === l.id ? 'border: 2px solid #0F2A5F;' : 'border: 1px solid #E2E8F0;'),
+        pick: () => this.setState({ sel: l.id })
+      }))
+    }));
+    const l = L.find((x) => x.id === s.sel);
+    const st = stageOf(l);
+    const bubble = (who) => 'max-width: 85%; padding: 10px 14px; font-size: 14px; line-height: 1.45; ' + (who === 'p' ? 'align-self: flex-end; background: #DCF8C6; border-radius: 14px 14px 4px 14px;' : 'align-self: flex-start; background: #FFFFFF; border-radius: 14px 14px 14px 4px;');
+    const SRC = [['Website form', 41], ['WhatsApp', 38], ['Phone & walk-in', 27], ['Parent referral', 22]];
+    return {
+      nav: [{ label: 'Parent chats', badge: '15' }, { label: 'Complaints', badge: '3' }, { label: 'Staff', badge: '' }, { label: 'Monthly ROI', badge: '' }]
+        .map((n) => ({ ...n, badgeStyle: n.badge ? 'min-width: 22px; padding: 1px 8px; border-radius: 999px; background: #17377A; color: #FCD58A; font-size: 12px; font-weight: 700; text-align: center' : 'display: none' })),
+      cols,
+      d: {
+        parent: l.parent, child: l.child, source: l.source, when: l.when, stage: STAGES[st], summary: l.summary,
+        chat: l.chat.map((m) => ({ text: m.t, style: bubble(m.who) })),
+        canMove: st < 5, next: STAGES[Math.min(st + 1, 5)],
+        move: () => this.setState({ moved: { ...s.moved, [l.id]: (s.moved[l.id] || 0) + 1 } }),
+        assign: () => this.setState({ assigned: { ...s.assigned, [l.id]: true } }),
+        note: s.assigned[l.id] ? 'Assigned to Mrs. Pinto, admissions counsellor' : ''
+      },
+      sources: SRC.map(([name, n]) => ({ name, n, bar: 'height: 100%; width: ' + Math.round((n / 41) * 100) + '%; background: #0F2A5F; border-radius: 999px' }))
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

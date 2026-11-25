@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS — Parent chats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F7FB}
+a{color:#0F2A5F}a:hover{color:#1E40AF}
+button:focus-visible,a:focus-visible{outline:3px solid #F5A524;outline-offset:2px}
+</style>
+
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="min-height: 1000px; display: flex; flex-wrap: wrap; font-family: Inter, 'Noto Sans Devanagari', 'Noto Sans Kannada', system-ui, sans-serif; color: #0F172A; background: #F6F7FB">
+
+  <nav aria-label="Main" style="flex: 1 1 240px; max-width: 100%; box-sizing: border-box; background: #0F2A5F; color: #FFFFFF; padding: 28px 18px; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+      <div style="width: 38px; height: 38px; border-radius: 10px; background: #F5A524; display: flex; align-items: center; justify-content: center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F2A5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5-9-5z"></path><path d="M7 12v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V12"></path></svg>
+      </div>
+      <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 19px">School OS</div>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px">
+      <li><a href="Today.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Today</a></li>
+      <li><a href="Fees.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Fee Recovery<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">212</span></a></li>
+      <li><a href="Admissions.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Admissions<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">9</span></a></li>
+      <li><a href="Circulars.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Circulars</a></li>
+      <li><a href="Chats.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; background: #F5A524; color: #0F2A5F; font-weight: 700;">Parent chats<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; color: #0F2A5F;">15</span></a></li>
+      <li><a href="Complaints.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Complaints<span style="min-width: 22px; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; text-align: center; background: #17377A; color: #FCD58A;">3</span></a></li>
+      <li><a href="Staff.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Staff</a></li>
+      <li><a href="ROI.html" style="display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 12px; border-radius: 10px; font-size: 15px; text-decoration: none; color: #FFFFFF;">Monthly ROI</a></li>
+    </ul>
+    <div style="background: #17377A; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #FCD58A">Parent Desk agent</div>
+      <div style="font-size: 14px; line-height: 1.5; color: #D6DEF5">Replies in the parent's language · passes safety, complaints and anything unsure to staff</div>
+      <a href="Agents.html" style="font-size: 14px; color: #FCD58A">Edit rules</a>
+    </div>
+    <div style="margin-top: auto; font-size: 12px; color: #AEBBE2; padding: 0 8px">Demo prototype · fictional school and sample data</div>
+  </nav>
+
+  <main style="flex: 999 1 760px; min-width: 0; box-sizing: border-box; padding: 28px 36px 40px; display: flex; flex-direction: column; gap: 22px">
+    <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="font-size: 14px; color: #475569">Thursday, 7 January · Sunrise Public School</div>
+        <h1 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.01em">Parent chats</h1>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px">
+        <span style="padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2E8F0"><strong>186</strong> today</span>
+        <span style="padding: 8px 14px; border-radius: 999px; background: #DCFCE7; color: #166534"><strong>171</strong> answered by AI</span>
+        <span style="padding: 8px 14px; border-radius: 999px; background: #FEF3C7; color: #92400E"><strong>15</strong> passed to staff</span>
+      </div>
+    </header>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: stretch">
+      <section aria-label="Conversations" style="flex: 2 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px; box-sizing: border-box">
+        <div role="group" aria-label="Filter" style="display: flex; flex-wrap: wrap; gap: 6px">
+          <template data-sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+            <button onClick="{{f.pick}}" aria-pressed="{{f.on}}" style="{{f.style}}">{{f.label}}</button>
+          </template>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <template data-sc-for list="{{list}}" as="c" hint-placeholder-count="6">
+            <button onClick="{{c.pick}}" style="{{c.style}}">
+              <span style="display: flex; justify-content: space-between; gap: 8px; align-items: center">
+                <span style="font-weight: 600; font-size: 14px; color: #0F172A">{{c.parent}}</span>
+                <span style="font-size: 12px; color: #475569">{{c.time}}</span>
+              </span>
+              <span style="font-size: 13px; color: #334155; text-align: left">{{c.preview}}</span>
+              <span style="display: flex; flex-wrap: wrap; gap: 6px">
+                <span style="{{c.statusStyle}}">{{c.status}}</span>
+                <span style="padding: 2px 8px; border-radius: 999px; background: #F1F5F9; color: #334155; font-size: 11px; font-weight: 600">{{c.lang}}</span>
+              </span>
+            </button>
+          </template>
+        </div>
+      </section>
+
+      <section aria-label="Conversation" style="flex: 3 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px; font-weight: 700">{{c.parent}}</h2>
+            <span style="font-size: 13px; color: #475569">{{c.child}} · {{c.lang}} · via WhatsApp</span>
+          </div>
+          <span style="{{c.modeStyle}}">{{c.mode}}</span>
+        </div>
+        <div style="flex: 1; background: #E9F1EC; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 340px">
+          <template data-sc-for list="{{c.msgs}}" as="m" hint-placeholder-count="4">
+            <div style="{{m.wrap}}">
+              <span style="font-size: 11px; font-weight: 600; color: #3F5A4A">{{m.who}}</span>
+              <div style="{{m.style}}">{{m.text}}</div>
+            </div>
+          </template>
+        </div>
+        <template data-sc-if value="{{c.canTake}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+            <button onClick="{{c.take}}" style="height: 44px; padding: 0 18px; border: 0; border-radius: 10px; background: #0F2A5F; color: #FFFFFF; font: 600 14px Inter, sans-serif; cursor: pointer">Take over chat</button>
+            <span style="font-size: 13px; color: #475569">{{c.hint}}</span>
+          </div>
+        </template>
+        <template data-sc-if value="{{c.human}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-size: 13px; font-weight: 600; color: #475569">Suggested replies · AI-drafted, sent as the school</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px">
+              <template data-sc-for list="{{c.sugg}}" as="g" hint-placeholder-count="2">
+                <button onClick="{{g.send}}" style="min-height: 44px; padding: 8px 14px; border: 1px solid #0F2A5F; border-radius: 10px; background: #FFFFFF; color: #0F2A5F; font: 500 14px Inter, sans-serif; cursor: pointer; text-align: left">{{g.text}}</button>
+              </template>
+            </div>
+          </div>
+        </template>
+      </section>
+
+      <aside aria-label="Parent context" style="flex: 1 1 240px; min-width: 0; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box">
+        <h2 style="margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700">About this family</h2>
+        <template data-sc-for list="{{c.facts}}" as="x" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 12px; color: #475569; font-weight: 600">{{x.k}}</span>
+            <span style="font-size: 14px">{{x.v}}</span>
+          </div>
+        </template>
+        <div style="margin-top: auto; padding: 12px; border-radius: 12px; background: #F8FAFC; font-size: 13px; color: #475569; line-height: 1.5">Teachers' and staff numbers stay hidden. Parents only see the school's WhatsApp number.</div>
+      </aside>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { filter: 'all', sel: 'arun', taken: {}, extra: {} }; }
+  renderVals() {
+    const s = this.state;
+    const M = (w, t) => ({ w, t });
+    const C = [
+      { id: 'arun', parent: 'Mr. Arun Pillai', child: 'Nikhil · Class 3C', lang: 'English', time: '9:22 AM', st: 'esc', tag: 'Safety',
+        msgs: [M('p', 'My son came home with a swollen ankle after PE yesterday. Nobody informed us.'), M('a', 'I’m sorry to hear that. I’ve passed this to the principal right away, and someone from the school will call you shortly.')],
+        sugg: ['I’m calling you in 5 minutes to understand what happened.', 'The class teacher and PE teacher will meet you today at 2 PM.'],
+        facts: [['Child', 'Nikhil Pillai, Class 3C'], ['Class teacher', 'Ms. Thomas'], ['Fees', 'Up to date'], ['Past issues', 'None']] },
+      { id: 'kavya', parent: 'Mrs. Kavya Nair', child: 'Aditya · Class 4A', lang: 'English', time: '8:51 AM', st: 'esc', tag: 'Fees',
+        msgs: [M('p', 'Can I get 15 more days for the Term 3 fee? We had a medical expense this month.'), M('a', 'I understand. Extensions need the principal’s approval, so I’ve sent your request. You’ll hear back today.')],
+        sugg: ['Your 15-day extension is approved. Reminders are paused until 22 January.', 'We can split the fee into two parts. Shall I send the details?'],
+        facts: [['Child', 'Aditya Nair, Class 4A'], ['Fees', '₹18,500 due 10 Jan'], ['Payment history', 'On time, last 4 terms'], ['Past issues', 'None']] },
+      { id: 'deepak', parent: 'Mr. Deepak Hegde', child: 'Sahana · Class 7A', lang: 'ಕನ್ನಡ', time: '8:12 AM', st: 'esc', tag: 'Complaint',
+        msgs: [M('p', 'ಬಸ್ ಮತ್ತೆ 20 ನಿಮಿಷ ತಡವಾಗಿದೆ. ಇದು ಈ ವಾರ ಮೂರನೇ ಬಾರಿ.'), M('a', 'ತೊಂದರೆಗಾಗಿ ಕ್ಷಮಿಸಿ. ಮಾರ್ಗ 4 ಬಸ್ 7:25ಕ್ಕೆ ನಿಮ್ಮ ನಿಲ್ದಾಣ ತಲುಪಲಿದೆ. ಈ ದೂರನ್ನು ಸಾರಿಗೆ ಮುಖ್ಯಸ್ಥರಿಗೆ ಕಳುಹಿಸಿದ್ದೇನೆ.'), M('note', 'Translation: Parent says the bus is 20 minutes late, third time this week. AI apologised, shared the arrival time and logged a complaint.')],
+        sugg: ['We’ve changed the Route 4 schedule from Monday. Thank you for your patience.', 'Our transport head will call you this afternoon.'],
+        facts: [['Child', 'Sahana Hegde, Class 7A'], ['Transport', 'Route 4 · Chandapura stop'], ['Complaint', 'Logged · due 1 PM today'], ['Past issues', '2 bus delays this week']] },
+      { id: 'sunita', parent: 'Mrs. Sunita Yadav', child: 'Riya · Class 5B', lang: 'हिंदी', time: '9:40 AM', st: 'ai', tag: '',
+        msgs: [M('p', 'क्या 26 जनवरी को स्कूल बंद रहेगा?'), M('a', 'जी हाँ, 26 जनवरी को गणतंत्र दिवस के कारण स्कूल बंद रहेगा।'), M('p', 'धन्यवाद!')],
+        sugg: [], facts: [['Child', 'Riya Yadav, Class 5B'], ['Fees', 'Up to date'], ['Language', 'Hindi'], ['Past issues', 'None']] },
+      { id: 'ayesha', parent: 'Mrs. Ayesha Khan', child: 'Zara · UKG', lang: 'English', time: '9:05 AM', st: 'ai', tag: '',
+        msgs: [M('p', 'Zara’s uniform is too small. Can we exchange it?'), M('a', 'Yes. The uniform counter exchanges sizes on weekdays from 8 to 10 AM. Please bring the unused set with its tag.'), M('p', 'Great, I’ll come tomorrow.')],
+        sugg: [], facts: [['Child', 'Zara Khan, UKG'], ['Fees', 'Up to date'], ['Language', 'English'], ['Past issues', 'None']] },
+      { id: 'prakash', parent: 'Mr. Prakash Shetty', child: 'Arnav · Class 9B', lang: 'English', time: 'Yesterday', st: 'esc', tag: 'Academic',
+        msgs: [M('p', 'Arnav’s science marks look wrong on the report card. He scored 42, not 32.'), M('a', 'Thank you for flagging this. I’ve asked the class teacher to check the answer sheet, and she’ll reply by tomorrow.')],
+        sugg: ['The marks have been corrected to 42. An updated report card is attached.', 'The teacher has rechecked; she’ll share the answer sheet at the PTM.'],
+        facts: [['Child', 'Arnav Shetty, Class 9B'], ['Class teacher', 'Mrs. D’Souza'], ['Fees', 'Up to date'], ['Past issues', 'None']] },
+      { id: 'lakshmi', parent: 'Mrs. Lakshmi Nair', child: 'Arjun · Class 1C', lang: 'English', time: '8:40 AM', st: 'ai', tag: '',
+        msgs: [M('p', 'I paid the Term 2 balance just now. Please confirm.'), M('a', 'Received ₹18,500. Thank you! Your receipt is attached, and reminders have stopped.')],
+        sugg: [], facts: [['Child', 'Arjun Nair, Class 1C'], ['Fees', 'Paid today'], ['Language', 'English'], ['Past issues', 'None']] }
+    ];
+    const FIL = [['all', 'All'], ['esc', 'With staff'], ['ai', 'Handled by AI']];
+    const list = C.filter((c) => s.filter === 'all' || c.st === s.filter).map((c) => {
+      const taken = !!s.taken[c.id];
+      return { parent: c.parent, time: c.time, preview: c.msgs[0].t, lang: c.lang,
+        status: taken ? 'Staff replying' : c.st === 'esc' ? 'With staff · ' + c.tag : 'Resolved by AI',
+        statusStyle: 'padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; ' + (taken ? 'background: #E0E7FF; color: #3730A3;' : c.st === 'esc' ? (c.tag === 'Safety' ? 'background: #FEE2E2; color: #991B1B;' : 'background: #FEF3C7; color: #92400E;') : 'background: #DCFCE7; color: #166534;'),
+        style: 'display: flex; flex-direction: column; gap: 4px; padding: 12px; border-radius: 12px; cursor: pointer; font-family: Inter, \'Noto Sans Devanagari\', \'Noto Sans Kannada\', sans-serif; background: #FFFFFF; text-align: left; ' + (s.sel === c.id ? 'border: 2px solid #0F2A5F;' : 'border: 1px solid #E2E8F0;'),
+        pick: () => this.setState({ sel: c.id }) };
+    });
+    const c = C.find((x) => x.id === s.sel);
+    const taken = !!s.taken[c.id];
+    const extra = s.extra[c.id] || [];
+    const all = c.msgs.concat(extra.map((t) => M('s', t)));
+    const msgs = all.map((m) => {
+      if (m.w === 'note') return { who: 'AI note for staff', text: m.t, wrap: 'display: flex; flex-direction: column; gap: 2px; align-self: stretch', style: 'padding: 10px 14px; border-radius: 12px; background: #FFF8EB; border: 1px dashed #E7B95C; font-size: 13px; line-height: 1.5; color: #78350F' };
+      const p = m.w === 'p';
+      return { who: p ? 'Parent' : m.w === 'a' ? 'School OS (AI)' : 'Principal’s office', text: m.t,
+        wrap: 'display: flex; flex-direction: column; gap: 2px; max-width: 82%; ' + (p ? 'align-self: flex-start; align-items: flex-start;' : 'align-self: flex-end; align-items: flex-end;'),
+        style: 'padding: 10px 14px; font-size: 14px; line-height: 1.5; ' + (p ? 'background: #FFFFFF; border-radius: 14px 14px 14px 4px;' : m.w === 'a' ? 'background: #DCF8C6; border-radius: 14px 14px 4px 14px;' : 'background: #0F2A5F; color: #FFFFFF; border-radius: 14px 14px 4px 14px;') };
+    });
+    return {
+      filters: FIL.map(([id, label]) => ({ label, on: s.filter === id,
+        style: 'height: 36px; padding: 0 12px; border-radius: 999px; cursor: pointer; font: 600 13px Inter, sans-serif; ' + (s.filter === id ? 'background: #0F2A5F; color: #FFFFFF; border: 1px solid #0F2A5F;' : 'background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;'),
+        pick: () => this.setState({ filter: id }) })),
+      list,
+      c: {
+        parent: c.parent, child: c.child, lang: c.lang, msgs,
+        mode: taken ? 'You are replying' : c.st === 'esc' ? 'Waiting for staff' : 'Resolved by AI',
+        modeStyle: 'padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; ' + (taken ? 'background: #E0E7FF; color: #3730A3;' : c.st === 'esc' ? 'background: #FEF3C7; color: #92400E;' : 'background: #DCFCE7; color: #166534;'),
+        canTake: !taken && c.st === 'esc', human: taken && extra.length === 0,
+        hint: 'The AI pauses on this chat while you reply.',
+        take: () => this.setState({ taken: { ...s.taken, [c.id]: true } }),
+        sugg: c.sugg.map((t) => ({ text: t, send: () => this.setState({ extra: { ...s.extra, [c.id]: [t] } }) })),
+        facts: c.facts.map(([k, v]) => ({ k, v }))
+      }
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>

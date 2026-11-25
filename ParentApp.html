@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School OS Parent — WhatsApp chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+<style>body{background:#0B1F47!important;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:24px 0;box-sizing:border-box}#app{border-radius:36px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.4)}@media(max-width:420px){body{padding:0}#app{border-radius:0}}</style>
+<script src="morphdom.min.js"></script>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<a href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:50;padding:8px 14px;border-radius:999px;background:rgba(15,42,95,.88);color:#fff;font:600 13px Inter,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)">All screens</a>
+<template id="dc-tpl">
+
+<div style="width: 390px; height: 844px; position: relative; display: flex; flex-direction: column; background: #ECE5DD; font-family: Inter, 'Noto Sans Devanagari', system-ui, sans-serif; color: #0F172A; overflow: hidden; box-sizing: border-box">
+
+  <template data-sc-if value="{{isChat}}" hint-placeholder-val="{{ true }}">
+    <header style="background: #0B5D51; color: #FFFFFF; padding: 18px 14px 14px; display: flex; align-items: center; gap: 12px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: #F5A524; color: #0F2A5F; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">SPS</div>
+      <div style="flex: 1; display: flex; flex-direction: column">
+        <span style="font-weight: 600; font-size: 16px">Sunrise Public School</span>
+        <span style="font-size: 12px; color: #CDE7E1">{{chatSub}}</span>
+      </div>
+      <template data-sc-if value="{{isFamily}}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{openCall}}" aria-label="Open the AI call" style="width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>
+        </button>
+      </template>
+    </header>
+    <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column-reverse; padding: 12px; gap: 8px">
+      <template data-sc-for list="{{items}}" as="m" hint-placeholder-count="5">
+        <div style="{{m.wrap}}">
+          <div style="{{m.bubble}}">
+            <template data-sc-if value="{{m.hasTag}}" hint-placeholder-val="{{ false }}"><div style="font-size: 11px; font-weight: 700; color: #0B5D51; margin-bottom: 4px">{{m.tag}}</div></template>
+            <div style="font-size: 15px; line-height: 1.45; white-space: pre-line">{{m.text}}</div>
+            <template data-sc-if value="{{m.hasSub}}" hint-placeholder-val="{{ false }}"><div style="font-size: 12px; color: #52606D; margin-top: 4px; line-height: 1.4">{{m.sub}}</div></template>
+            <div style="font-size: 11px; color: #667781; text-align: right; margin-top: 2px">{{m.time}}</div>
+          </div>
+          <template data-sc-if value="{{m.hasBtns}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 6px; width: 100%">
+              <template data-sc-for list="{{m.btns}}" as="b" hint-placeholder-count="2">
+                <button onClick="{{b.go}}" style="min-height: 44px; border: 0; border-radius: 10px; background: #FFFFFF; color: #0B5D51; font: 600 15px Inter, 'Noto Sans Devanagari', sans-serif; cursor: pointer; box-shadow: 0 1px 1px rgba(0,0,0,.08)">{{b.label}}</button>
+              </template>
+            </div>
+          </template>
+        </div>
+      </template>
+      <div style="align-self: center; padding: 4px 12px; border-radius: 8px; background: #DDE8F0; font-size: 12px; color: #334155">{{dayChip}}</div>
+    </div>
+    <div style="background: #F0F2F5; padding: 8px 10px 14px; display: flex; flex-direction: column; gap: 8px">
+      <template data-sc-if value="{{hasChips}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; gap: 6px; overflow-x: auto">
+          <template data-sc-for list="{{chips}}" as="c" hint-placeholder-count="2">
+            <button onClick="{{c.go}}" style="flex: 0 0 auto; height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #0B5D51; background: #FFFFFF; color: #0B5D51; font: 600 13px Inter, 'Noto Sans Devanagari', sans-serif; cursor: pointer">{{c.label}}</button>
+          </template>
+        </div>
+      </template>
+      <div style="display: flex; gap: 8px; align-items: center">
+        <div style="flex: 1; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; padding: 0 16px; font-size: 15px; color: #667781">Message</div>
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: #0B5D51; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg></div>
+      </div>
+    </div>
+
+    <template data-sc-if value="{{paySheet}}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; inset: 0; background: rgba(15,23,42,.45); display: flex; flex-direction: column; justify-content: flex-end">
+        <div role="dialog" aria-label="Pay school fee" style="background: #FFFFFF; border-radius: 22px 22px 0 0; padding: 22px 20px 26px; display: flex; flex-direction: column; gap: 12px">
+          <div style="width: 40px; height: 4px; border-radius: 2px; background: #CBD5E1; align-self: center"></div>
+          <div style="font-size: 13px; color: #475569">Paying Sunrise Public School via UPI</div>
+          <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 36px; font-weight: 800">₹18,500</div>
+          <div style="font-size: 14px; color: #334155">Term 3 fee · Aarav Sharma · Class 6B · due 10 January</div>
+          <button onClick="{{pay}}" style="height: 52px; border: 0; border-radius: 12px; background: #0B5D51; color: #FFFFFF; font: 700 16px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Pay with my UPI app</button>
+          <button onClick="{{closePay}}" style="height: 44px; border: 1px solid #CBD5E1; border-radius: 12px; background: #FFFFFF; color: #334155; font: 600 15px Inter, sans-serif; cursor: pointer">Not now</button>
+          <div style="font-size: 12px; color: #475569; text-align: center">Demo screen · no real payment is made</div>
+        </div>
+      </div>
+    </template>
+  </template>
+
+  <template data-sc-if value="{{isCall}}" hint-placeholder-val="{{ false }}">
+    <div style="flex: 1; background: #0F2A5F; color: #FFFFFF; display: flex; flex-direction: column; padding: 40px 20px 28px; gap: 18px; box-sizing: border-box; min-height: 0">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+        <div style="width: 84px; height: 84px; border-radius: 50%; background: #F5A524; color: #0F2A5F; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 24px">SPS</div>
+        <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 22px; font-weight: 800">Sunrise Public School</div>
+        <div style="font-size: 14px; color: #C3CEEC">{{callSub}}</div>
+        <span style="padding: 3px 10px; border-radius: 999px; background: #17377A; color: #FCD58A; font-size: 12px; font-weight: 700">AI assistant · says so at the start of every call</span>
+      </div>
+
+      <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column-reverse; gap: 10px; min-height: 0">
+        <template data-sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+          <div style="{{l.wrap}}">
+            <span style="font-size: 11px; font-weight: 700; color: #FCD58A">{{l.who}}</span>
+            <div style="{{l.bubble}}">{{l.text}}</div>
+            <span style="font-size: 12px; color: #AEBBE2; line-height: 1.4">{{l.sub}}</span>
+          </div>
+        </template>
+      </div>
+
+      <template data-sc-if value="{{ringing}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; justify-content: space-around">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+            <button onClick="{{decline}}" aria-label="Decline call" style="width: 72px; height: 72px; border-radius: 50%; border: 0; background: #DC2626; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+            <span style="font-size: 13px">Decline</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+            <button onClick="{{accept}}" aria-label="Accept call" style="width: 72px; height: 72px; border-radius: 50%; border: 0; background: #16A34A; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></button>
+            <span style="font-size: 13px">Accept</span>
+          </div>
+        </div>
+      </template>
+      <template data-sc-if value="{{live}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+          <button onClick="{{hangup}}" aria-label="End call" style="width: 72px; height: 72px; border-radius: 50%; border: 0; background: #DC2626; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15c5-5 13-5 18 0l-2.5 2.5-3-1.5v-3a10 10 0 0 0-7 0v3l-3 1.5z"></path></svg></button>
+          <span style="font-size: 13px">End call</span>
+        </div>
+      </template>
+      <template data-sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
+        <div style="background: #FFFFFF; color: #0F172A; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <div style="font-weight: 700; font-size: 16px">Call ended · {{callLen}}</div>
+          <div style="font-size: 14px; line-height: 1.5; color: #334155">{{callSummary}}</div>
+          <button onClick="{{toChat}}" style="height: 48px; border: 0; border-radius: 12px; background: #0B5D51; color: #FFFFFF; font: 700 15px 'Plus Jakarta Sans', sans-serif; cursor: pointer">Back to WhatsApp</button>
+        </div>
+      </template>
+    </div>
+  </template>
+</div>
+</template>
+<script type="text/plain" id="dc-code">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    const st = p.start || 'chat';
+    this.state = { mode: st === 'adm' ? 'adm' : st, reply: null, hw: false, sheet: false, paid: false, ptm: null, asked: {}, call: 'ringing', n: 0, callOutcome: null, slot: null, aAsk: {} };
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearInterval(this.iv); }
+  renderVals() {
+    const s = this.state;
+    const IN = (o) => ({ side: 'in', ...o }), OUT = (o) => ({ side: 'out', ...o });
+    const later = (patch, ms) => { clearTimeout(this.t); this.t = setTimeout(() => this.setState(patch), ms); };
+    const msgs = [];
+    const chips = [];
+    if (s.mode === 'chat') {
+      const replyMap = {
+        sick: ['वह बीमार है', 'He is unwell'],
+        call: ['कृपया कॉल करें', 'Please call me']
+      };
+      msgs.push(IN({ tag: 'Attendance alert', text: 'नमस्ते! आरव (कक्षा 6B) आज स्कूल में उपस्थित नहीं है। क्या सब ठीक है?', sub: 'Hello! Aarav (Class 6B) is absent today. Is everything all right?', time: '8:10 AM',
+        btns: s.reply ? [] : [
+          { label: 'वह बीमार है · He is unwell', go: () => { this.setState({ reply: 'sick' }); later({ hw: true }, 1300); } },
+          { label: 'कृपया कॉल करें · Please call me', go: () => this.setState({ mode: 'call', call: 'ringing', n: 0 }) }
+        ] }));
+      if (s.callOutcome === 'declined' && !s.reply) {
+        msgs.push(IN({ text: 'हमने आपको कॉल करने की कोशिश की। सुविधा हो तो यहीं जवाब दें।', sub: 'We tried calling you. Please reply here when convenient.', time: '8:18 AM' }));
+      }
+      if (s.reply) {
+        if (s.reply === 'sick') msgs.push(OUT({ text: replyMap.sick[0], sub: replyMap.sick[1], time: '8:12 AM' }));
+        msgs.push(IN({ text: 'जल्दी ठीक हो जाए! आज की छुट्टी दर्ज कर ली है। आज का होमवर्क यहीं भेज दिया जाएगा।', sub: 'Get well soon! Today’s leave is recorded. Today’s homework will be sent here.', time: s.reply === 'sick' ? '8:12 AM' : '8:18 AM' }));
+      }
+      if (s.hw) {
+        msgs.push(IN({ tag: 'Homework · Maths', text: 'कक्षा 6B · गणित गृहकार्य: अध्याय 4, अभ्यास 2, प्रश्न 1–10। गुरुवार, 14 जनवरी तक जमा करें। — सुश्री राव', sub: 'Chapter 4, Exercise 2, Q1–10. Due Thursday, 14 January.', time: '9:02 AM' }));
+        msgs.push(IN({ tag: 'Fee reminder', text: 'आरव की टर्म 3 फ़ीस ₹18,500, 10 जनवरी तक देय है। एक टैप में भुगतान करें।', sub: 'Aarav’s Term 3 fee of ₹18,500 is due on 10 January. Pay in one tap.', time: '9:05 AM',
+          btns: s.paid ? [] : [{ label: '₹18,500 UPI से भुगतान करें · Pay via UPI', go: () => this.setState({ sheet: true }) }] }));
+      }
+      if (s.paid) {
+        msgs.push(IN({ tag: 'Payment received', text: '₹18,500 प्राप्त हुए। धन्यवाद!\nरसीद: SPS/26-27/04512', sub: 'Received ₹18,500. Thank you! Receipt attached.', time: '9:10 AM' }));
+        msgs.push(IN({ tag: 'Parent-teacher meeting', text: 'शनिवार, 16 जनवरी को PTM है। सुश्री राव से मिलने का समय चुनें:', sub: 'PTM on Saturday, 16 January. Pick a time to meet Ms. Rao:', time: '9:10 AM',
+          btns: s.ptm ? [] : ['9:30 AM', '10:15 AM', '11:00 AM'].map((t) => ({ label: t, go: () => this.setState({ ptm: t }) })) }));
+      }
+      if (s.ptm) {
+        msgs.push(OUT({ text: s.ptm, time: '9:11 AM' }));
+        msgs.push(IN({ text: 'बुक हो गया: शनिवार, 16 जनवरी, ' + s.ptm + ', सुश्री राव के साथ, कक्षा 6B। एक दिन पहले याद दिला देंगे।', sub: 'Booked with Ms. Rao. We’ll remind you a day before.', time: '9:11 AM' }));
+      }
+      const Q = [
+        { id: 'q1', q: 'क्या 26 जनवरी को स्कूल बंद है?', qs: 'Is school closed on 26 Jan?', a: 'जी हाँ, 26 जनवरी को गणतंत्र दिवस के कारण स्कूल बंद रहेगा।', as: 'Yes, school is closed on 26 January for Republic Day.' },
+        { id: 'q2', q: 'कल बस कितने बजे आएगी?', qs: 'What time is the bus tomorrow?', a: 'रूट 4 की बस कल सुबह 7:05 बजे चंदापुरा स्टॉप से निकलेगी।', as: 'The Route 4 bus leaves the Chandapura stop at 7:05 AM tomorrow.' }
+      ];
+      if (s.reply) {
+        Q.forEach((q) => {
+          if (s.asked[q.id]) { msgs.push(OUT({ text: q.q, sub: q.qs, time: 'now' })); msgs.push(IN({ text: q.a, sub: q.as, time: 'now' })); }
+          else chips.push({ label: q.q, go: () => this.setState({ asked: { ...s.asked, [q.id]: true } }) });
+        });
+      }
+    }
+    if (s.mode === 'adm') {
+      msgs.push(OUT({ text: 'Hi, are Class 1 admissions open for next year?', time: '9:31 AM' }));
+      msgs.push(IN({ tag: 'Admissions', text: 'Yes, Class 1 admissions for 2027-28 are open! Would you like to see the campus? Tours this Saturday:', time: '9:31 AM',
+        btns: s.slot ? [] : ['Sat 10:00 AM', 'Sat 11:30 AM', 'Another day'].map((t) => ({ label: t, go: () => this.setState({ slot: t }) })) }));
+      if (s.slot) {
+        msgs.push(OUT({ text: s.slot, time: '9:32 AM' }));
+        msgs.push(IN({ text: s.slot === 'Another day' ? 'No problem. Our admissions counsellor will call you today to find a time that suits you.' : 'Booked: ' + s.slot + ', Saturday 9 January. The tour takes about 40 minutes. I’ll send directions on Friday evening.\n\nPlease bring your child’s birth certificate copy.', time: '9:32 AM' }));
+        const A = [
+          { id: 'fee', q: 'What is the fee for Class 1?', a: 'The Class 1 fee for 2027-28 is ₹74,000 a year, paid in 4 terms of ₹18,500. Siblings get 10% off tuition.' },
+          { id: 'bus', q: 'Is there a bus from Electronic City?', a: 'Yes. Route 2 covers Electronic City Phase 1, with pickup at 7:10 AM.' }
+        ];
+        A.forEach((x) => {
+          if (s.aAsk[x.id]) { msgs.push(OUT({ text: x.q, time: 'now' })); msgs.push(IN({ text: x.a, time: 'now' })); }
+          else chips.push({ label: x.q, go: () => this.setState({ aAsk: { ...s.aAsk, [x.id]: true } }) });
+        });
+      }
+    }
+    const items = msgs.map((m) => {
+      const out = m.side === 'out';
+      const btns = m.btns || [];
+      return { text: m.text, sub: m.sub || '', hasSub: !!m.sub, tag: m.tag || '', hasTag: !!m.tag, time: m.time, btns, hasBtns: btns.length > 0,
+        wrap: 'display: flex; flex-direction: column; gap: 6px; max-width: 84%; ' + (out ? 'align-self: flex-end; align-items: flex-end;' : 'align-self: flex-start; align-items: stretch;'),
+        bubble: 'padding: 8px 10px; box-shadow: 0 1px 1px rgba(0,0,0,.08); ' + (out ? 'background: #D9FDD3; border-radius: 10px 10px 2px 10px;' : 'background: #FFFFFF; border-radius: 10px 10px 10px 2px;') };
+    }).reverse();
+
+    const L = [
+      { w: 'ai', t: 'नमस्ते, मैं सनराइज़ पब्लिक स्कूल की AI सहायक बोल रही हूँ। आरव आज स्कूल नहीं आया, क्या सब ठीक है?', e: 'Hello, this is Sunrise Public School’s AI assistant. Aarav didn’t come to school today. Is everything all right?' },
+      { w: 'p', t: 'हाँ, उसे बुखार है। आज छुट्टी पर है।', e: 'Yes, he has a fever. He’s on leave today.' },
+      { w: 'ai', t: 'जल्दी ठीक हो जाए। मैंने छुट्टी दर्ज कर ली है और आज का होमवर्क व्हाट्सऐप पर भेज दूँगी।', e: 'Get well soon. I’ve recorded the leave and will send today’s homework on WhatsApp.' },
+      { w: 'p', t: 'ठीक है, धन्यवाद।', e: 'Okay, thank you.' }
+    ];
+    const shown = s.mode === 'call' && s.call !== 'ringing' ? L.slice(0, s.n) : [];
+    const lines = shown.map((l) => ({ who: l.w === 'ai' ? 'SCHOOL AI' : 'PARENT', text: l.t, sub: l.e,
+      wrap: 'display: flex; flex-direction: column; gap: 3px; max-width: 88%; ' + (l.w === 'ai' ? 'align-self: flex-start;' : 'align-self: flex-end; align-items: flex-end;'),
+      bubble: 'padding: 10px 12px; border-radius: 12px; font-size: 15px; line-height: 1.45; ' + (l.w === 'ai' ? 'background: #17377A;' : 'background: #FFFFFF; color: #0F172A;') })).reverse();
+    const endCall = () => { clearInterval(this.iv); this.setState({ call: 'ended' }); };
+    return {
+      isChat: s.mode === 'chat' || s.mode === 'adm', isFamily: s.mode === 'chat', isCall: s.mode === 'call',
+      chatSub: s.mode === 'adm' ? 'School account · replies within a minute' : 'School account · AI assistant with staff backup',
+      dayChip: s.mode === 'adm' ? 'Today · new enquiry from the website' : 'Today · Thursday, 7 January',
+      items, chips, hasChips: chips.length > 0,
+      paySheet: s.sheet, pay: () => this.setState({ sheet: false, paid: true }), closePay: () => this.setState({ sheet: false }),
+      openCall: () => this.setState({ mode: 'call', call: 'ringing', n: 0 }),
+      callSub: s.call === 'ringing' ? 'Incoming call · about Aarav, Class 6B' : s.call === 'live' ? 'On call · live transcript' : 'Call summary',
+      ringing: s.call === 'ringing', live: s.call === 'live', ended: s.call === 'ended', lines,
+      accept: () => {
+        this.setState({ call: 'live', n: 1 });
+        clearInterval(this.iv);
+        this.iv = setInterval(() => {
+          const n = this.state.n + 1;
+          if (n > L.length) { endCall(); } else this.setState({ n });
+        }, 1900);
+      },
+      decline: () => this.setState({ mode: 'chat', call: 'ringing', n: 0, callOutcome: 'declined' }),
+      hangup: endCall,
+      callLen: '0 min 48 s',
+      callSummary: 'Leave recorded for Aarav. Class teacher Ms. Rao informed. Today’s homework will be sent on WhatsApp.',
+      toChat: () => { this.setState({ mode: 'chat', reply: s.reply || 'call' }); later({ hw: true }, 1300); }
+    };
+  }
+}
+</script>
+<script>DCRun();</script>
+</body>
+</html>
